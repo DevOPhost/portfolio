@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Currículo — Leonardo Farias Martins</title>
+    <style>
+      :root { --ink:#0d1a22; --muted:#52656f; --line:#dce5e9; --blue:#087fa8; }
+      * { box-sizing:border-box; }
+      body { margin:0; color:var(--ink); background:#eef3f5; font:13px/1.55 Arial,sans-serif; }
+      main { width:210mm; min-height:297mm; margin:20px auto; padding:18mm; background:white; box-shadow:0 15px 50px #24333b20; }
+      header { display:grid; grid-template-columns:1fr auto; gap:30px; padding-bottom:22px; border-bottom:2px solid var(--ink); }
+      h1 { margin:0; font-size:32px; line-height:1.05; letter-spacing:-1.2px; }
+      header p { margin:8px 0 0; color:var(--blue); font-weight:700; }
+      .links { display:flex; flex-direction:column; align-items:flex-end; gap:4px; color:var(--muted); font-size:10px; }
+      .links a { color:inherit; text-decoration:none; }
+      .summary { margin:20px 0 23px; color:#30434d; font-size:12px; }
+      .grid { display:grid; grid-template-columns:1.7fr .85fr; gap:32px; }
+      section { margin-bottom:24px; }
+      h2 { margin:0 0 12px; color:var(--blue); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; }
+      h3 { margin:0; font-size:14px; }
+      .meta { margin:3px 0 9px; color:var(--muted); font-size:10px; }
+      ul { margin:8px 0 0; padding-left:17px; }
+      li { margin-bottom:4px; }
+      .item { margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid var(--line); }
+      .item:last-child { border:0; }
+      .skills { display:flex; flex-wrap:wrap; gap:6px; }
+      .skills span { padding:5px 7px; color:#31505e; background:#eef5f7; border-radius:4px; font-size:9px; }
+      .metric { display:grid; grid-template-columns:44px 1fr; align-items:center; gap:8px; margin-bottom:10px; }
+      .metric strong { color:var(--blue); font-size:18px; }
+      .metric span { color:var(--muted); font-size:9px; line-height:1.3; }
+      footer { margin-top:18px; padding-top:12px; color:#74848c; border-top:1px solid var(--line); font-size:9px; text-align:center; }
+      @page { size:A4; margin:0; }
+      @media print { body { background:white; } main { margin:0; box-shadow:none; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Leonardo Farias Martins</h1>
+          <p>Analista de Sistemas · Desenvolvimento Web · Automação · Dados</p>
+        </div>
+        <div class="links">
+          <span>Mato Grosso, Brasil</span>
+          <a href="https://github.com/DevOPhost">github.com/DevOPhost</a>
+          <a href="https://www.linkedin.com/in/leonardo-farias-martins-160340215/">LinkedIn / Leonardo Farias Martins</a>
+        </div>
+      </header>
+
+      <p class="summary">
+        Profissional de Tecnologia da Informação formado em Ciência da Computação pela UNIC, com mais de
+        três anos de experiência conectando processos administrativos e tecnologia. Atuação com análise de
+        sistemas, ERP, automação com Python e Excel, desenvolvimento web, banco de dados, Supabase,
+        documentação técnica e organização de informações operacionais.
+      </p>
+
+      <div class="grid">
+        <div>
+          <section>
+            <h2>Experiência profissional</h2>
+            <div class="item">
+              <h3>Analista de Sistemas · Kiminorte</h3>
+              <div class="meta">Agosto de 2023 — atual · Várzea Grande/MT · Presencial</div>
+              <ul>
+                <li>Análise e organização de dados operacionais em Excel e planilhas avançadas.</li>
+                <li>Apoio à gestão e utilização de sistemas ERP e às rotinas administrativas.</li>
+                <li>Automação de tarefas recorrentes utilizando Excel e Python.</li>
+                <li>Desenvolvimento de landing pages e soluções web responsivas.</li>
+                <li>Documentação de sistemas, processos internos e suporte técnico à operação.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2>Projetos selecionados</h2>
+            <div class="item"><h3>ArcadeX</h3><div class="meta">Next.js · TypeScript · Supabase</div><span>Plataforma com 18 jogos, ranking, XP, economia interna, missões, conquistas, admin e anti-cheat.</span></div>
+            <div class="item"><h3>DevAtlas</h3><div class="meta">Web · UX · Arquitetura da informação</div><span>Guia gratuito para comparar áreas de tecnologia, explorar stacks e orientar decisões de carreira.</span></div>
+            <div class="item"><h3>NexusOps & StageFlow</h3><div class="meta">JavaScript · Dashboards · Sistemas acadêmicos</div><span>Soluções desenvolvidas nos estágios supervisionados para operações de TI e gestão de estágios.</span></div>
+            <div class="item"><h3>Organize & TerraVex</h3><div class="meta">Python · CLI · APIs · Dados</div><span>Automação segura de arquivos e experiência interativa para explorar indicadores econômicos globais.</span></div>
+          </section>
+
+          <section>
+            <h2>Formação</h2>
+            <h3>Bacharelado em Ciência da Computação · UNIC</h3>
+            <div class="meta">Agosto de 2022 — Junho de 2026</div>
+            <span>Projetos de extensão, estágios supervisionados e formação em software, dados, redes, segurança e IA.</span>
+          </section>
+        </div>
+
+        <aside>
+          <section>
+            <h2>Destaques</h2>
+            <div class="metric"><strong>9,96</strong><span>coeficiente de rendimento</span></div>
+            <div class="metric"><strong>10</strong><span>nota máxima no TCC — único do semestre</span></div>
+            <div class="metric"><strong>42</strong><span>disciplinas concluídas</span></div>
+            <div class="metric"><strong>+3</strong><span>anos de experiência prática</span></div>
+          </section>
+
+          <section>
+            <h2>Competências</h2>
+            <div class="skills">
+              <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>React</span>
+              <span>Next.js</span><span>Node.js</span><span>HTML/CSS</span><span>REST APIs</span>
+              <span>SQL</span><span>Supabase</span><span>MySQL</span><span>Excel avançado</span>
+              <span>ERP</span><span>Git/GitHub</span><span>Postman</span><span>Packet Tracer</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Certificações selecionadas</h2>
+            <div class="item"><h3>IBM SkillsBuild</h3><div class="meta">Dados · Cibersegurança · Web · IA</div></div>
+            <div class="item"><h3>Cisco Networking Academy</h3><div class="meta">AI Fundamentals · Packet Tracer</div></div>
+            <div class="item"><h3>Fundação Bradesco</h3><div class="meta">Python 53h · Banco de Dados 38h</div></div>
+            <div class="item"><h3>Udemy</h3><div class="meta">Desenvolvimento Web 126,5h · Python</div></div>
+          </section>
+
+          <section>
+            <h2>Idiomas</h2>
+            <h3>Inglês avançado</h3>
+          </section>
+
+          <section>
+            <h2>Extensão</h2>
+            <span>Educação tecnológica, plataforma web para eventos culturais e apoio tecnológico a microempreendedores locais.</span>
+          </section>
+        </aside>
+      </div>
+      <footer>Currículo profissional — Leonardo Farias Martins · 2026</footer>
+    </main>
+  </body>
+</html>

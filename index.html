@@ -1,0 +1,53 @@
+﻿<!doctype html>
+<html lang="pt-BR" data-theme="dark" data-contrast="normal" data-motion="full" data-links="default">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08090b" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="author" content="Leonardo Farias Martins" />
+    <meta
+      name="description"
+      content="Portfólio de Leonardo Farias Martins | Analista de Sistemas com experiência em software, automação, desenvolvimento web e dados."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Leonardo Farias Martins | Analista de Sistemas" />
+    <meta
+      property="og:description"
+      content="Projetos, experiência e trajetória em análise de sistemas, software, automação e dados."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Leonardo Farias Martins | Analista de Sistemas" />
+    <meta
+      name="twitter:description"
+      content="Projetos, experiência e trajetória em análise de sistemas, software, automação e dados."
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script>
+      try {
+        const saved = JSON.parse(localStorage.getItem("portfolio-accessibility") || "{}");
+        document.documentElement.dataset.theme = saved.theme === "light" ? "light" : "dark";
+        document.documentElement.dataset.contrast = saved.highContrast ? "high" : "normal";
+        document.documentElement.dataset.motion = saved.reduceMotion ? "reduce" : "full";
+        document.documentElement.dataset.links = saved.underlineLinks ? "underlined" : "default";
+        document.documentElement.style.setProperty("--font-scale", String(saved.fontScale || 1));
+        const language = localStorage.getItem("portfolio-language");
+        document.documentElement.lang = language === "en" ? "en-US" : "pt-BR";
+      } catch {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Leonardo Farias Martins | Analista de Sistemas</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+
