@@ -1,4 +1,4 @@
-﻿import {
+import {
   ArrowDown,
   ArrowRight,
   Award,
@@ -73,10 +73,6 @@ function App() {
         <Section id="inicio" className="hero">
           <div className="page-grid hero-layout">
             <div className="hero-copy">
-              <div className="hero-signature">
-                <img src="favicon.svg" alt="" width="64" height="64" />
-                <div><strong>Leonardo Farias Martins</strong><span>{copy.hero.signatureRole}</span></div>
-              </div>
               <span className="hero-eyebrow">{copy.hero.eyebrow}</span>
               <h1><span>{copy.hero.title.lead}</span> <em>{copy.hero.title.highlight}</em></h1>
               <p>{copy.hero.description}</p>
