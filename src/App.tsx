@@ -76,18 +76,6 @@ function App() {
               <span className="hero-eyebrow">{copy.hero.eyebrow}</span>
               <h1><span>{copy.hero.title.lead}</span> <em>{copy.hero.title.highlight}</em></h1>
               <p>{copy.hero.description}</p>
-              <div className="hero-language-card" aria-label={copy.hero.languageCard.label}>
-                <strong>{copy.hero.languageCard.label}</strong>
-                <div className="hero-language-card__items">
-                  {copy.hero.languageCard.items.map(([flag, label]) => (
-                    <span className="hero-language-card__item" key={label}>
-                      <b aria-hidden="true">{flag}</b>
-                      <em>{label}</em>
-                    </span>
-                  ))}
-                </div>
-                <p>{copy.hero.languageCard.note}</p>
-              </div>
               <div className="hero-actions">
                 <a className="button button--solid" href="#projetos">{copy.hero.actions.projects} <ArrowDown /></a>
                 <a className="button button--outline" href={links.github} target="_blank" rel="noreferrer"><Github /> GitHub</a>
@@ -96,12 +84,6 @@ function App() {
               </div>
             </div>
             <ProfilePortrait labels={copy.portrait} />
-
-            <dl className="professional-summary">
-              {copy.hero.summary.map(([term, description]) => (
-                <div key={term}><dt>{term}</dt><dd>{description}</dd></div>
-              ))}
-            </dl>
           </div>
         </Section>
 

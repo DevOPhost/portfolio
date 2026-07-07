@@ -87,29 +87,21 @@ export const content = {
       actions: {
         projects: "Ver projetos",
         resume: "Currículo"
-      },
-      languageCard: {
-        label: "Idiomas e atuação",
-        items: [
-          ["🇧🇷", "Português nativo"],
-          ["🇺🇸", "Inglês avançado C1+"]
-        ] as const,
-        note: "Atuação no Brasil e disponibilidade para oportunidades remotas/internacionais quando houver bom alinhamento."
-      },
-      summary: [
-        ["Atuação", "Analista de Sistemas"],
-        ["Formação", "Ciência da Computação — UNIC"],
-        ["Localização", "Brasil"],
-        ["Idiomas", "Português nativo · Inglês avançado C1+"],
-        ["Disponibilidade", "Aberto a oportunidades e projetos"]
-      ] as const
+      }
     },
     portrait: {
       aria: "Perfil profissional de Leonardo Farias Martins",
       alt: "Retrato profissional de Leonardo Farias Martins",
-      status: "Disponível para oportunidades",
       role: "Analista de Sistemas & Desenvolvedor",
-      location: "Cuiabá · Mato Grosso"
+      location: "Cuiabá · Mato Grosso",
+      passTitle: "Digital Identity Pass",
+      passCode: "LF-2026",
+      name: "Leonardo Farias Martins",
+      scopeLabel: "Atuação",
+      scope: "Software · Dados · Operação",
+      reachLabel: "Alcance",
+      reach: "Brasil · Remoto internacional",
+      verification: "Perfil profissional"
     },
     experience: {
       intro: {
@@ -345,29 +337,21 @@ export const content = {
       actions: {
         projects: "View projects",
         resume: "Resume"
-      },
-      languageCard: {
-        label: "Languages and work scope",
-        items: [
-          ["🇧🇷", "Native Portuguese"],
-          ["🇺🇸", "Advanced English C1+"]
-        ] as const,
-        note: "Available in Brazil and for remote/international opportunities when there is a strong fit."
-      },
-      summary: [
-        ["Role", "Systems Analyst"],
-        ["Education", "Computer Science — UNIC"],
-        ["Location", "Brazil"],
-        ["Languages", "Native Portuguese · Advanced English C1+"],
-        ["Availability", "Open to opportunities and projects"]
-      ] as const
+      }
     },
     portrait: {
       aria: "Professional profile of Leonardo Farias Martins",
       alt: "Professional portrait of Leonardo Farias Martins",
-      status: "Open to opportunities",
       role: "Systems Analyst & Developer",
-      location: "Cuiabá · Mato Grosso"
+      location: "Cuiabá · Mato Grosso",
+      passTitle: "Digital Identity Pass",
+      passCode: "LF-2026",
+      name: "Leonardo Farias Martins",
+      scopeLabel: "Scope",
+      scope: "Software · Data · Operations",
+      reachLabel: "Reach",
+      reach: "Brazil · International remote",
+      verification: "Professional profile"
     },
     experience: {
       intro: {

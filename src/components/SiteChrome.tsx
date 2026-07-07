@@ -1,6 +1,7 @@
 import {
   Accessibility,
   Check,
+  ChevronDown,
   Contrast,
   Download,
   Link2,
@@ -156,39 +157,83 @@ function LanguageSwitcher({
   labels: LanguageSelectorCopy;
   onLanguageChange: (language: Language) => void;
 }) {
+  const [open, setOpen] = useState(false);
+  const switcherRef = useRef<HTMLDivElement>(null);
+  const currentOption = languageOptions.find((option) => option.code === language) ?? languageOptions[0];
+  const currentLabel = currentOption.code === "pt" ? labels.pt : labels.en;
+
+  useEffect(() => {
+    if (!open) return;
+
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (!switcherRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    window.addEventListener("pointerdown", closeOnOutsideClick);
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      window.removeEventListener("pointerdown", closeOnOutsideClick);
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
+
+  const chooseLanguage = (nextLanguage: Language) => {
+    onLanguageChange(nextLanguage);
+    setOpen(false);
+  };
+
   return (
-    <div className="language-switcher" role="group" aria-label={labels.aria}>
-      <span className="language-switcher__label">{labels.label}</span>
-      <div className="language-switcher__options">
-        {languageOptions.map((option) => {
-          const languageLabel = option.code === "pt" ? labels.pt : labels.en;
-          return (
-            <button
-              key={option.code}
-              type="button"
-              aria-pressed={language === option.code}
-              aria-label={`${languageLabel} - ${option.short}`}
-              title={`${languageLabel} - ${option.short}`}
-              onClick={() => onLanguageChange(option.code)}
-            >
-              <span className="language-switcher__flag" aria-hidden="true">{option.flag}</span>
-              <span className="language-switcher__copy">
-                <strong>{option.short}</strong>
-                <small>{languageLabel}</small>
-              </span>
-            </button>
-          );
-        })}
-      </div>
+    <div className={`language-switcher${open ? " is-open" : ""}`} ref={switcherRef}>
+      <button
+        className="language-switcher__trigger"
+        type="button"
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-label={`${labels.aria}: ${currentLabel}`}
+        onClick={() => setOpen((current) => !current)}
+      >
+        <span className="language-switcher__flag" aria-hidden="true">{currentOption.flag}</span>
+        <strong>{currentOption.short}</strong>
+        <ChevronDown aria-hidden="true" size={14} />
+      </button>
+
+      {open && (
+        <div className="language-switcher__menu" role="menu" aria-label={labels.aria}>
+          {languageOptions.map((option) => {
+            const languageLabel = option.code === "pt" ? labels.pt : labels.en;
+            return (
+              <button
+                key={option.code}
+                type="button"
+                role="menuitemradio"
+                aria-checked={language === option.code}
+                onClick={() => chooseLanguage(option.code)}
+              >
+                <span className="language-switcher__flag" aria-hidden="true">{option.flag}</span>
+                <span>
+                  <strong>{languageLabel}</strong>
+                  <small>{option.short}</small>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
+
 
 export function Section({ id, className = "", children }: { id: string; className?: string; children: ReactNode }) {
   const ref = useRef<HTMLElement>(null);
   useSectionReveal(ref);
   return <section ref={ref} id={id} className={`section ${className}`}>{children}</section>;
 }
+
 
 export function SectionIntro({ label, title, description }: { label: string; title: string; description?: string }) {
   return (
@@ -262,7 +307,7 @@ export function Navigation({
   return (
     <>
       <header className="topbar">
-        <a className="brand" href="#inicio" aria-label="Leonardo Farias Martins — início">
+        <a className="brand" href="#inicio" aria-label="Leonardo Farias Martins - início">
           <img src="favicon.svg" alt="" width="42" height="42" />
           <span><strong>Leonardo Farias</strong><small>{labels.brandRole}</small></span>
         </a>
