@@ -1,4 +1,4 @@
-﻿import {
+import {
   Accessibility,
   Check,
   Contrast,
@@ -158,20 +158,28 @@ function LanguageSwitcher({
 }) {
   return (
     <div className="language-switcher" role="group" aria-label={labels.aria}>
-      <span>{labels.label}</span>
-      {languageOptions.map((option) => (
-        <button
-          key={option.code}
-          type="button"
-          aria-pressed={language === option.code}
-          aria-label={option.code === "pt" ? labels.pt : labels.en}
-          onClick={() => onLanguageChange(option.code)}
-        >
-          <span aria-hidden="true">{option.flag}</span>
-          <strong>{option.short}</strong>
-          <small>{option.code === "pt" ? labels.pt : labels.en}</small>
-        </button>
-      ))}
+      <span className="language-switcher__label">{labels.label}</span>
+      <div className="language-switcher__options">
+        {languageOptions.map((option) => {
+          const languageLabel = option.code === "pt" ? labels.pt : labels.en;
+          return (
+            <button
+              key={option.code}
+              type="button"
+              aria-pressed={language === option.code}
+              aria-label={`${languageLabel} - ${option.short}`}
+              title={`${languageLabel} - ${option.short}`}
+              onClick={() => onLanguageChange(option.code)}
+            >
+              <span className="language-switcher__flag" aria-hidden="true">{option.flag}</span>
+              <span className="language-switcher__copy">
+                <strong>{option.short}</strong>
+                <small>{languageLabel}</small>
+              </span>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

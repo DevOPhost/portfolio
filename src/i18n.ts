@@ -1,4 +1,4 @@
-﻿import type { Certificate, EventEntry, ExtensionEntry, Project } from "./data";
+import type { Certificate, EventEntry, ExtensionEntry, Project } from "./data";
 
 export type Language = "pt" | "en";
 
@@ -89,12 +89,12 @@ export const content = {
         resume: "Currículo"
       },
       languageCard: {
-        label: "Idiomas & atuação",
+        label: "Idiomas e atuação",
         items: [
           ["🇧🇷", "Português nativo"],
           ["🇺🇸", "Inglês avançado C1+"]
         ] as const,
-        note: "Aberto a oportunidades no Brasil e a vagas remotas/internacionais quando fizer sentido."
+        note: "Atuação no Brasil e disponibilidade para oportunidades remotas/internacionais quando houver bom alinhamento."
       },
       summary: [
         ["Atuação", "Analista de Sistemas"],
@@ -347,12 +347,12 @@ export const content = {
         resume: "Resume"
       },
       languageCard: {
-        label: "Languages & work scope",
+        label: "Languages and work scope",
         items: [
           ["🇧🇷", "Native Portuguese"],
           ["🇺🇸", "Advanced English C1+"]
         ] as const,
-        note: "Open to opportunities in Brazil and remote/international roles when there is a strong fit."
+        note: "Available in Brazil and for remote/international opportunities when there is a strong fit."
       },
       summary: [
         ["Role", "Systems Analyst"],

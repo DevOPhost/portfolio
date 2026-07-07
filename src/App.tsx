@@ -78,12 +78,15 @@ function App() {
               <p>{copy.hero.description}</p>
               <div className="hero-language-card" aria-label={copy.hero.languageCard.label}>
                 <strong>{copy.hero.languageCard.label}</strong>
-                <div>
+                <div className="hero-language-card__items">
                   {copy.hero.languageCard.items.map(([flag, label]) => (
-                    <span key={label}><b aria-hidden="true">{flag}</b>{label}</span>
+                    <span className="hero-language-card__item" key={label}>
+                      <b aria-hidden="true">{flag}</b>
+                      <em>{label}</em>
+                    </span>
                   ))}
                 </div>
-                <small>{copy.hero.languageCard.note}</small>
+                <p>{copy.hero.languageCard.note}</p>
               </div>
               <div className="hero-actions">
                 <a className="button button--solid" href="#projetos">{copy.hero.actions.projects} <ArrowDown /></a>

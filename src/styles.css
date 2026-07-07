@@ -3558,6 +3558,246 @@ body {
     margin-top: 22px;
   }
 }
+/* Language selector and hero language polish */
+
+.language-switcher {
+  gap: 6px;
+  padding: 3px;
+  border-color: color-mix(in srgb, var(--line-strong), transparent 24%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface), transparent 9%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.language-switcher__label {
+  padding: 0 5px 0 8px;
+  color: var(--faint);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.language-switcher__options {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.language-switcher button {
+  min-height: 38px;
+  gap: 7px;
+  padding: 0 10px 0 7px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+.language-switcher button:hover {
+  transform: translateY(-1px);
+  color: var(--text);
+  border-color: var(--line-strong);
+  background: color-mix(in srgb, var(--surface-raised), transparent 20%);
+}
+
+.language-switcher button[aria-pressed="true"] {
+  color: var(--bg);
+  border-color: var(--text);
+  background: var(--text);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.language-switcher__flag {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--line-strong), transparent 18%);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface-raised), transparent 25%);
+  font-size: 0.98rem;
+  line-height: 1;
+  transition:
+    transform 0.36s var(--ease-premium),
+    background 0.36s var(--ease-premium),
+    border-color 0.36s var(--ease-premium);
+}
+
+.language-switcher button:hover .language-switcher__flag {
+  transform: translateY(-1px) scale(1.04);
+}
+
+.language-switcher button[aria-pressed="true"] .language-switcher__flag {
+  border-color: color-mix(in srgb, var(--bg), transparent 55%);
+  background: color-mix(in srgb, var(--bg), transparent 88%);
+}
+
+.language-switcher__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.language-switcher button strong {
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.025em;
+}
+
+.language-switcher .language-switcher__copy small {
+  display: block;
+  margin-top: 3px;
+  color: currentColor;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  opacity: 0.62;
+}
+
+.hero-language-card {
+  width: min(100%, 620px);
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 16px;
+  border-color: color-mix(in srgb, var(--accent) 18%, var(--line));
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface), transparent 18%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.hero-language-card > strong {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text-soft);
+  font-size: 0.68rem;
+  font-weight: 820;
+  letter-spacing: 0.105em;
+}
+
+.hero-language-card > strong::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--success) 18%, transparent);
+}
+
+.hero-language-card > .hero-language-card__items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  justify-content: stretch;
+}
+
+.hero-language-card .hero-language-card__item {
+  width: auto;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 11px;
+  color: var(--text-soft);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--surface-raised), transparent 38%);
+  font-size: 0.76rem;
+  font-weight: 760;
+}
+
+.hero-language-card .hero-language-card__item b {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bg), transparent 55%);
+  font-size: 1.08rem;
+  line-height: 1;
+}
+
+.hero-language-card .hero-language-card__item em {
+  min-width: 0;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.hero-language-card p {
+  margin: 0;
+  padding-top: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font-size: 0.76rem;
+  line-height: 1.58;
+}
+
+@media (max-width: 1320px) {
+  .language-switcher .language-switcher__copy small {
+    display: none;
+  }
+
+  .language-switcher button {
+    padding-right: 9px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .language-switcher {
+    gap: 3px;
+  }
+
+  .language-switcher__label {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand {
+    gap: 0;
+  }
+
+  .brand > span {
+    display: none;
+  }
+
+  .language-switcher {
+    min-height: 38px;
+    padding: 2px;
+  }
+
+  .language-switcher button {
+    min-height: 34px;
+    gap: 5px;
+    padding: 0 7px 0 5px;
+  }
+
+  .language-switcher__flag {
+    width: 21px;
+    height: 21px;
+    font-size: 0.86rem;
+  }
+
+  .language-switcher button strong {
+    font-size: 0.58rem;
+  }
+
+  .hero-language-card {
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .hero-language-card > .hero-language-card__items {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-language-card .hero-language-card__item {
+    width: 100%;
+  }
+}
 @media print {
   .topbar,
   .hero-actions,
