@@ -1,4 +1,4 @@
-# Leonardo Farias Martins — Portfolio
+# Leonardo Farias Martins | Portfolio
 
 Personal portfolio for Leonardo Farias Martins, a Systems Analyst and Computer Science graduate based in Brazil. The site presents professional experience, selected projects, technologies, education, certificates, extension work, resume links and contact channels.
 
