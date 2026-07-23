@@ -5,13 +5,11 @@ export type Language = "pt" | "en";
 export const languageOptions = [
   {
     code: "pt" as const,
-    flag: "🇧🇷",
     short: "PT-BR",
     label: "Português"
   },
   {
     code: "en" as const,
-    flag: "🇺🇸",
     short: "EN-US",
     label: "English"
   }
@@ -19,17 +17,21 @@ export const languageOptions = [
 
 export function readPreferredLanguage(): Language {
   if (typeof window === "undefined") return "pt";
-  const saved = localStorage.getItem("portfolio-language");
-  return saved === "en" ? "en" : "pt";
+  try {
+    const saved = window.localStorage.getItem("portfolio-language");
+    return saved === "en" ? "en" : "pt";
+  } catch {
+    return "pt";
+  }
 }
 
 export const content = {
   pt: {
-    documentTitle: "Leonardo Farias Martins | Analista de Sistemas",
+    documentTitle: "Leonardo Farias Martins | Analista de Sistemas e Desenvolvedor",
     metaDescription:
-      "Portfólio de Leonardo Farias Martins | Analista de Sistemas com experiência em software, automação, desenvolvimento web e dados.",
+      "Portfólio de Leonardo Farias Martins | Analista de Sistemas e Desenvolvedor com experiência em software, automação, desenvolvimento web, ERP e dados.",
     skipLink: "Pular para o conteúdo",
-    brandRole: "Analista de Sistemas",
+    brandRole: "Analista de Sistemas e Desenvolvedor",
     navLabel: "Navegação principal",
     languageSelector: {
       aria: "Selecionar idioma do site",
@@ -51,6 +53,7 @@ export const content = {
       titleKicker: "Acessibilidade",
       title: "Adapte a leitura ao seu jeito.",
       description: "As preferências ficam salvas neste navegador.",
+      close: "Fechar painel de acessibilidade",
       theme: "Tema",
       themeDescription: "Escolha a aparência com melhor conforto visual.",
       dark: "Escuro",
@@ -76,14 +79,14 @@ export const content = {
       }
     },
     hero: {
-      signatureRole: "Analista de Sistemas & Desenvolvedor",
-      eyebrow: "Portfólio profissional · Software, dados e operação",
+      signatureRole: "Analista de Sistemas e Desenvolvedor",
+      eyebrow: "Portfólio profissional · Sistemas, dados e automação",
       title: {
         lead: "Transformo processos e dados em",
         highlight: "sistemas úteis."
       },
       description:
-        "Bacharel em Ciência da Computação com experiência em análise de sistemas, automação, desenvolvimento web, ERP e dados — criando soluções que deixam rotinas mais claras, previsíveis e fáceis de operar.",
+        "Bacharel em Ciência da Computação com experiência em sistemas, ERP, dados, automação e desenvolvimento web. Organizo processos e reduzo tarefas manuais com software.",
       actions: {
         projects: "Ver projetos",
         resume: "Currículo"
@@ -92,59 +95,53 @@ export const content = {
     portrait: {
       aria: "Perfil profissional de Leonardo Farias Martins",
       alt: "Retrato profissional de Leonardo Farias Martins",
-      role: "Analista de Sistemas & Desenvolvedor",
+      role: "Analista de Sistemas e Desenvolvedor",
       location: "Cuiabá · Mato Grosso",
-      passTitle: "Digital Identity Pass",
-      passCode: "LF-2026",
       name: "Leonardo Farias Martins",
-      scopeLabel: "Atuação",
-      scope: "Software · Dados · Operação",
-      reachLabel: "Alcance",
       reach: "Brasil · Remoto internacional",
-      verification: "Perfil profissional"
     },
     experience: {
       intro: {
         label: "Experiência",
-        title: "Atuação profissional e prática supervisionada.",
-        description: "Experiências em que tecnologia, operação e responsabilidade acadêmica se encontram."
+        title: "Experiência em sistemas e operação.",
+        description: "Trabalho profissional e prática supervisionada com processos, dados e software."
       },
       company: {
         logoAlt: "Logo da Kiminorte",
-        period: "Agosto de 2023 — atual",
-        title: "Analista de Sistemas",
+        period: "Agosto de 2023 até o momento",
+        title: "Analista de Sistemas e Desenvolvedor",
         place: "Kiminorte · Várzea Grande, Mato Grosso",
         link: "Conhecer a empresa",
         description:
-          "Atuo entre a operação administrativa e a tecnologia, organizando informações, apoiando o uso de ERP e desenvolvendo soluções para reduzir tarefas manuais.",
+          "Na Kiminorte, conecto a operação administrativa à tecnologia. Trabalho com ERP, dados, documentação, automação e desenvolvimento web.",
         points: [
-          ["Sistemas", "suporte, documentação e melhoria de fluxos internos."],
-          ["Dados", "controles operacionais, Excel e apoio à decisão."],
-          ["Automação", "scripts e rotinas para ganhar previsibilidade."],
-          ["Web", "presença digital, catálogo e jornada comercial."]
+          ["Sistemas", "suporte ao ERP e melhoria de processos."],
+          ["Dados", "controles operacionais e apoio à decisão."],
+          ["Automação", "scripts para reduzir tarefas manuais."],
+          ["Web", "catálogo, conteúdo e jornada comercial."]
         ] as const
       },
       internships: {
         eyebrow: "Experiência acadêmica supervisionada",
         title: "Estágios Supervisionados Obrigatórios",
-        note: "Projetos e documentação organizados por etapa",
+        note: "Documentação acadêmica por etapa",
         mainActivities: "Atividades principais",
         viewForm: "Visualizar ficha",
         items: [
           {
             area: "Gestão acadêmica",
             title: "StageFlow",
-            description: "Sistema para acompanhar estagiários, supervisores, atividades, horas e relatórios.",
+            description: "Sistema para controlar estágios, horas, atividades e relatórios.",
             activity:
-              "Mapeamento do fluxo de estágio, modelagem do banco de dados e desenvolvimento das interfaces do sistema.",
+              "Mapeamento do processo, banco de dados e interfaces.",
             file: "assets/internships/stageflow-acompanhamento.pdf"
           },
           {
             area: "Operações de TI",
             title: "NexusOps",
-            description: "Dashboard para reunir projetos, indicadores, alertas e prioridades de gestão.",
+            description: "Dashboard de projetos, indicadores e prioridades de TI.",
             activity:
-              "Levantamento de requisitos, integração de APIs, estruturação de dados e criação dos painéis operacionais.",
+              "Requisitos, integração de APIs, estrutura de dados e painéis.",
             file: "assets/internships/nexusops-acompanhamento.pdf"
           }
         ]
@@ -153,8 +150,8 @@ export const content = {
     projects: {
       intro: {
         label: "Projetos",
-        title: "Produtos construídos para contextos diferentes.",
-        description: "Projetos autorais, acadêmicos e comerciais com código, telas e decisões de implementação."
+        title: "Projetos que resolvem problemas concretos.",
+        description: "Soluções autorais, acadêmicas e comerciais com foco em clareza, utilidade e manutenção simples."
       },
       labels: {
         details: "Detalhes",
@@ -170,13 +167,23 @@ export const content = {
         fallbackAria: (name: string) => `Identidade visual do projeto ${name}`,
         role: "Meu papel",
         technologies: "Tecnologias",
-        about: "Sobre o projeto"
+        about: "Sobre o projeto",
+        close: "Fechar detalhes do projeto"
+      },
+      previewSteps: {
+        DevAtlas: ["Áreas", "Roadmaps", "Comparador", "Projetos"],
+        ArcadeX: ["Biblioteca", "Ranking", "Loja", "Conquistas"],
+        Organize: ["Dry-run", "Extensões", "Pastas", "Conflitos"],
+        TerraVex: ["Mapa", "Indicadores", "CambioX", "Histórico"],
+        NexusOps: ["Dashboard", "Projetos", "Alertas", "APIs"],
+        StageFlow: ["Estagiários", "Horas", "Relatórios", "Supervisores"],
+        Kiminorte: ["Institucional", "Catálogo", "Produtos", "Orçamento"]
       },
       organize: {
         aria: "Prévia do Organize organizando arquivos no terminal",
-        title: "organize — dry-run",
-        folder: "Downloads",
-        folders: ["▾ documentos", "└ relatório.pdf", "▾ imagens", "└ retrato.png", "▾ arquivos", "└ backup.zip"],
+        title: "organize: dry-run",
+        folder: "Depois do dry-run",
+        folders: ["docs/relatorio.pdf", "images/retrato.png", "archives/backup.zip", "code/app.py"],
         command: "organize ./Downloads --dry-run",
         results: ["18 arquivos analisados", "12 movimentos planejados", "nenhum conflito encontrado"],
         note: "Prévia concluída. Nenhum arquivo foi alterado."
@@ -196,31 +203,28 @@ export const content = {
     education: {
       intro: {
         label: "Formação & conquistas acadêmicas",
-        title: "Ciência da Computação com desempenho consistente.",
+        title: "Bacharelado em Ciência da Computação.",
         description:
-          "Graduação concluída com excelência acadêmica e nota máxima no Trabalho de Conclusão de Curso."
+          "Graduação concluída com coeficiente 9,96 e nota 10 no TCC."
       },
       photoAlt: "Leonardo segurando a ata após a defesa do Trabalho de Conclusão de Curso",
-      logoAlt: "Logo da Universidade de Cuiabá — UNIC",
-      period: "Agosto de 2022 — Junho de 2026",
+      logoAlt: "Logo da Universidade de Cuiabá, UNIC",
+      period: "Agosto de 2022 a Junho de 2026",
       degree: "Bacharelado em Ciência da Computação",
-      institution: "UNIC — Universidade de Cuiabá",
+      institution: "UNIC, Universidade de Cuiabá",
       achievementTitle: "Nota máxima no TCC",
-      achievementDescription: "Único aluno do semestre com esse resultado.",
+      achievementDescription: "Trabalho aprovado com nota 10.",
       metrics: [
         ["9,96", "Coeficiente de rendimento"],
         ["42", "Disciplinas concluídas"],
         ["10", "Nota no TCC"]
-      ] as const,
-      diploma: "Ver diploma",
-      soon: "Em breve",
-      diplomaTitle: "O diploma será adicionado quando o arquivo estiver disponível"
+      ] as const
     },
     certificates: {
       intro: {
         label: "Certificações, cursos & eventos",
-        title: "Formação complementar documentada.",
-        description: "Cursos técnicos, credenciais verificáveis e participação em atividades acadêmicas."
+        title: "Certificações e cursos.",
+        description: "Credenciais em desenvolvimento, dados, IA, segurança e redes."
       },
       modalLabel: (title: string) => `Certificado ${title}`,
       imageAlt: (title: string, issuer: string) => `Certificado ${title}, emitido por ${issuer}`,
@@ -239,29 +243,38 @@ export const content = {
       eventPreviewAlt: (title: string) => `Prévia do certificado ${title}`,
       eventViewAria: (title: string) => `Visualizar ${title}`,
       view: "Visualizar",
-      viewCertificate: "Ver certificado"
+      viewCertificate: "Ver certificado",
+      close: "Fechar certificado"
     },
     extension: {
       intro: {
-        label: "Extensão & voluntariado tech",
-        title: "Tecnologia aplicada à comunidade.",
-        description: "Projetos de extensão desenvolvidos ao longo da graduação."
+        label: "Extensão & impacto comunitário",
+        title: "Projetos de extensão.",
+        description: "Tecnologia aplicada a educação, cultura e negócios locais."
       },
       viewDocument: "Ver documento"
     },
     resume: {
       label: "Currículo profissional",
-      title: "Experiência e formação em uma leitura objetiva.",
+      title: "Currículo direto para recrutadores e clientes.",
       description:
-        "Versões em PDF e HTML com experiência, formação, projetos, tecnologias e certificações.",
+        "Experiência, formação, projetos e certificações em PDF ou no navegador.",
       download: "Baixar PDF",
       browser: "Ver no navegador"
     },
     contact: {
       label: "Contato",
-      title: "Vamos conversar sobre sistemas, produtos e dados?",
+      title: "Vamos conversar sobre sistemas, automação e dados?",
       description:
-        "O contato principal é pelo LinkedIn. Você também pode conhecer meu código no GitHub ou baixar o currículo.",
+        "Para um contato direto, envie um e-mail. O LinkedIn também está disponível para oportunidades e conversas profissionais, enquanto o GitHub reúne projetos e decisões técnicas.",
+      email: {
+        title: "E-mail direto",
+        shortLabel: "E-mail",
+        description: "Abrir no seu aplicativo de e-mail",
+        copy: "Copiar",
+        copied: "Copiado",
+        copyAria: "Copiar endereço de e-mail"
+      },
       links: [
         ["LinkedIn", "Contato profissional e oportunidades"],
         ["GitHub", "Código, projetos e documentação"],
@@ -269,17 +282,17 @@ export const content = {
       ] as const
     },
     footer: {
-      role: "Analista de Sistemas",
+      role: "Analista de Sistemas e Desenvolvedor",
       location: "© 2026 · Cuiabá, Mato Grosso",
       backTop: "Voltar ao topo"
     }
   },
   en: {
-    documentTitle: "Leonardo Farias Martins | Systems Analyst",
+    documentTitle: "Leonardo Farias Martins | Systems Analyst and Developer",
     metaDescription:
-      "Portfolio of Leonardo Farias Martins | Systems Analyst experienced in software, automation, web development and data.",
+      "Portfolio of Leonardo Farias Martins | Systems Analyst and Developer experienced in software, automation, web development, ERP and data.",
     skipLink: "Skip to content",
-    brandRole: "Systems Analyst",
+    brandRole: "Systems Analyst and Developer",
     navLabel: "Primary navigation",
     languageSelector: {
       aria: "Select site language",
@@ -301,6 +314,7 @@ export const content = {
       titleKicker: "Accessibility",
       title: "Adjust the reading experience to your needs.",
       description: "Your preferences are saved in this browser.",
+      close: "Close accessibility panel",
       theme: "Theme",
       themeDescription: "Choose the appearance that feels most comfortable.",
       dark: "Dark",
@@ -326,14 +340,14 @@ export const content = {
       }
     },
     hero: {
-      signatureRole: "Systems Analyst & Developer",
-      eyebrow: "Professional portfolio · Software, data and operations",
+      signatureRole: "Systems Analyst and Developer",
+      eyebrow: "Professional portfolio · Systems, data and automation",
       title: {
         lead: "I turn processes and data into",
         highlight: "useful systems."
       },
       description:
-        "Computer Science graduate with experience in systems analysis, automation, web development, ERP and data — building solutions that make everyday operations clearer, more predictable and easier to run.",
+        "Computer Science graduate with experience in systems, ERP, data, automation and web development. I use software to organize processes and reduce manual work.",
       actions: {
         projects: "View projects",
         resume: "Resume"
@@ -342,59 +356,53 @@ export const content = {
     portrait: {
       aria: "Professional profile of Leonardo Farias Martins",
       alt: "Professional portrait of Leonardo Farias Martins",
-      role: "Systems Analyst & Developer",
+      role: "Systems Analyst and Developer",
       location: "Cuiabá · Mato Grosso",
-      passTitle: "Digital Identity Pass",
-      passCode: "LF-2026",
       name: "Leonardo Farias Martins",
-      scopeLabel: "Scope",
-      scope: "Software · Data · Operations",
-      reachLabel: "Reach",
       reach: "Brazil · International remote",
-      verification: "Professional profile"
     },
     experience: {
       intro: {
         label: "Experience",
-        title: "Professional work and supervised practice.",
-        description: "Experiences where technology, operations and academic responsibility meet."
+        title: "Experience in systems and operations.",
+        description: "Professional work and supervised practice with processes, data and software."
       },
       company: {
         logoAlt: "Kiminorte logo",
-        period: "August 2023 — present",
-        title: "Systems Analyst",
+        period: "August 2023 to present",
+        title: "Systems Analyst and Developer",
         place: "Kiminorte · Várzea Grande, Mato Grosso",
         link: "Visit the company",
         description:
-          "I work between administrative operations and technology, organizing information, supporting ERP usage and developing solutions that reduce manual work.",
+          "At Kiminorte, I connect administrative operations with technology through ERP, data, documentation, automation and web development.",
         points: [
-          ["Systems", "support, documentation and improvement of internal workflows."],
-          ["Data", "operational controls, Excel and decision support."],
-          ["Automation", "scripts and routines for more predictable work."],
-          ["Web", "digital presence, catalog and commercial journey."]
+          ["Systems", "ERP support and process improvement."],
+          ["Data", "operational controls and decision support."],
+          ["Automation", "scripts that reduce manual work."],
+          ["Web", "catalog, content and commercial journey."]
         ] as const
       },
       internships: {
         eyebrow: "Supervised academic experience",
         title: "Mandatory Supervised Internships",
-        note: "Projects and documents organized by stage",
+        note: "Academic documentation by stage",
         mainActivities: "Main activities",
         viewForm: "View evaluation form",
         items: [
           {
             area: "Academic management",
             title: "StageFlow",
-            description: "System for tracking interns, supervisors, activities, hours and reports.",
+            description: "System for tracking internships, hours, activities and reports.",
             activity:
-              "Internship workflow mapping, database modeling and development of the system interfaces.",
+              "Process mapping, database design and interfaces.",
             file: "assets/internships/stageflow-acompanhamento.pdf"
           },
           {
             area: "IT operations",
             title: "NexusOps",
-            description: "Dashboard for consolidating projects, indicators, alerts and management priorities.",
+            description: "Dashboard for IT projects, indicators and priorities.",
             activity:
-              "Requirements gathering, API integration, data structuring and creation of operational dashboards.",
+              "Requirements, API integration, data structure and dashboards.",
             file: "assets/internships/nexusops-acompanhamento.pdf"
           }
         ]
@@ -403,8 +411,8 @@ export const content = {
     projects: {
       intro: {
         label: "Projects",
-        title: "Products built for different contexts.",
-        description: "Personal, academic and commercial projects with code, screens and implementation decisions."
+        title: "Projects built around real problems.",
+        description: "Personal, academic and commercial solutions focused on clarity, usefulness and simple maintenance."
       },
       labels: {
         details: "Details",
@@ -420,13 +428,23 @@ export const content = {
         fallbackAria: (name: string) => `Visual identity for the ${name} project`,
         role: "My role",
         technologies: "Technologies",
-        about: "About the project"
+        about: "About the project",
+        close: "Close project details"
+      },
+      previewSteps: {
+        DevAtlas: ["Areas", "Roadmaps", "Compare", "Projects"],
+        ArcadeX: ["Library", "Ranking", "Store", "Achievements"],
+        Organize: ["Dry-run", "Extensions", "Folders", "Conflicts"],
+        TerraVex: ["Map", "Indicators", "CambioX", "History"],
+        NexusOps: ["Dashboard", "Projects", "Alerts", "APIs"],
+        StageFlow: ["Interns", "Hours", "Reports", "Supervisors"],
+        Kiminorte: ["Company", "Catalog", "Products", "Quote"]
       },
       organize: {
         aria: "Preview of Organize sorting files from the command line",
-        title: "organize — dry-run",
-        folder: "Downloads",
-        folders: ["▾ documents", "└ report.pdf", "▾ images", "└ portrait.png", "▾ archives", "└ backup.zip"],
+        title: "organize: dry-run",
+        folder: "After dry-run",
+        folders: ["docs/report.pdf", "images/portrait.png", "archives/backup.zip", "code/app.py"],
         command: "organize ./Downloads --dry-run",
         results: ["18 files scanned", "12 planned moves", "no conflicts found"],
         note: "Preview completed. No file was changed."
@@ -446,31 +464,28 @@ export const content = {
     education: {
       intro: {
         label: "Education & academic achievements",
-        title: "Computer Science with consistent performance.",
+        title: "Bachelor's Degree in Computer Science.",
         description:
-          "Degree completed with academic excellence and top score in the final undergraduate project."
+          "Degree completed with a 9.96 coefficient and a score of 10 on the final project."
       },
       photoAlt: "Leonardo holding the official record after presenting his undergraduate final project",
-      logoAlt: "University of Cuiabá — UNIC logo",
-      period: "August 2022 — June 2026",
+      logoAlt: "University of Cuiabá, UNIC logo",
+      period: "August 2022 to June 2026",
       degree: "Bachelor's Degree in Computer Science",
-      institution: "UNIC — University of Cuiabá",
+      institution: "UNIC, University of Cuiabá",
       achievementTitle: "Top score in the final project",
-      achievementDescription: "The only student in the semester to achieve this result.",
+      achievementDescription: "Final project approved with a score of 10.",
       metrics: [
         ["9.96", "Academic performance coefficient"],
         ["42", "Completed courses"],
         ["10", "Final project grade"]
-      ] as const,
-      diploma: "View diploma",
-      soon: "Soon",
-      diplomaTitle: "The diploma will be added once the file is available"
+      ] as const
     },
     certificates: {
       intro: {
         label: "Certificates, courses & events",
-        title: "Documented complementary education.",
-        description: "Technical courses, verifiable credentials and participation in academic activities."
+        title: "Certificates and courses.",
+        description: "Credentials in development, data, AI, security and networking."
       },
       modalLabel: (title: string) => `Certificate ${title}`,
       imageAlt: (title: string, issuer: string) => `Certificate ${title}, issued by ${issuer}`,
@@ -489,29 +504,38 @@ export const content = {
       eventPreviewAlt: (title: string) => `Certificate preview for ${title}`,
       eventViewAria: (title: string) => `View ${title}`,
       view: "View",
-      viewCertificate: "View certificate"
+      viewCertificate: "View certificate",
+      close: "Close certificate"
     },
     extension: {
       intro: {
-        label: "Extension & tech volunteering",
-        title: "Technology applied to the community.",
-        description: "Extension projects developed throughout the degree."
+        label: "University extension & community impact",
+        title: "University extension projects.",
+        description: "Technology applied to education, culture and local businesses."
       },
       viewDocument: "View document"
     },
     resume: {
       label: "Professional resume",
-      title: "Experience and education in an objective format.",
+      title: "A focused resume for recruiters and clients.",
       description:
-        "PDF and HTML versions with experience, education, projects, technologies and certifications.",
+        "Experience, education, projects and certifications in PDF or browser format.",
       download: "Download PDF",
       browser: "Open in browser"
     },
     contact: {
       label: "Contact",
-      title: "Shall we talk about systems, products and data?",
+      title: "Shall we talk about systems, automation and data?",
       description:
-        "LinkedIn is the main contact channel. You can also review my code on GitHub or download the resume.",
+        "For a direct conversation, send me an email. LinkedIn is also available for opportunities and professional conversations, while GitHub shows projects and technical decisions.",
+      email: {
+        title: "Direct email",
+        shortLabel: "Email",
+        description: "Open in your email application",
+        copy: "Copy",
+        copied: "Copied",
+        copyAria: "Copy email address"
+      },
       links: [
         ["LinkedIn", "Professional contact and opportunities"],
         ["GitHub", "Code, projects and documentation"],
@@ -519,7 +543,7 @@ export const content = {
       ] as const
     },
     footer: {
-      role: "Systems Analyst",
+      role: "Systems Analyst and Developer",
       location: "© 2026 · Cuiabá, Mato Grosso",
       backTop: "Back to top"
     }
@@ -534,9 +558,9 @@ const projectEnglish: Partial<Record<Project["name"], Partial<Project>>> = {
     status: "Completed",
     role: "Product, UX and development",
     description:
-      "Trilingual guide for comparing areas, technologies and study paths without getting lost in fragmented content.",
+      "Trilingual guide for comparing technology fields and building a study path.",
     detail:
-      "I created DevAtlas to bring together, in one place, the information that is usually scattered when someone starts studying technology. The platform organizes professional areas, tools, roadmaps and project ideas in Portuguese, English and Spanish. It was built with Next.js, React and TypeScript, focusing on clear navigation, accessible content and simple maintenance.",
+      "DevAtlas brings fields, tools, roadmaps and project ideas together in Portuguese, English and Spanish. I built it with Next.js, React and TypeScript, prioritizing clear navigation and simple maintenance.",
     category: "Product"
   },
   ArcadeX: {
@@ -544,9 +568,9 @@ const projectEnglish: Partial<Record<Project["name"], Partial<Project>>> = {
     status: "Completed",
     role: "Product, front-end and business rules",
     description:
-      "Ecosystem with 18 games, ranking, XP, X-Coins, missions, achievements, store and admin panel.",
+      "Platform with 18 games, ranking, progression, missions, achievements and a store.",
     detail:
-      "ArcadeX started from the idea of connecting casual games to a shared progression system. Beyond the 18 games, the platform includes rankings, experience, virtual currency, missions, achievements and administrative features. I used Next.js and TypeScript in the application and Supabase for authentication, persistence and player-related rules.",
+      "ArcadeX connects 18 games to a shared progression, ranking, mission and achievement system. It uses Next.js, TypeScript and Supabase for authentication, data and player rules.",
     category: "Product"
   },
   Organize: {
@@ -554,18 +578,18 @@ const projectEnglish: Partial<Record<Project["name"], Partial<Project>>> = {
     status: "Completed",
     role: "Concept and development",
     description:
-      "Python CLI that organizes files by extension, previews changes with dry-run and handles conflicts safely.",
+      "Python CLI that organizes files after a safe preview.",
     detail:
-      "Organize is a command-line tool created to solve the recurring clutter in work and downloads folders. The script identifies files, shows a simulation before moving anything and handles duplicated names without overwriting content. It was written in Python with special attention to predictable operations.",
+      "Organize classifies files, previews changes in dry-run mode and prevents overwrites when names conflict. It is a small automation for work and download folders.",
     category: "Automation"
   },
   TerraVex: {
     kicker: "Economic data in context",
     status: "Completed",
     role: "Data, interface and integration",
-    description: "Interactive map with country indicators and CambioX for currency conversions.",
+    description: "Interactive country map with economic indicators and currency conversion.",
     detail:
-      "TerraVex turns country indicators into a map-based visual experience. The interface allows users to consult economic information and use CambioX for currency conversions in the same product. The project combines HTML, CSS and JavaScript with external APIs, response handling and clear states for connection failures.",
+      "TerraVex combines a map, economic indicators and CambioX in one interface. It uses JavaScript, Leaflet, Chart.js and external APIs, including connection error handling.",
     category: "Data"
   },
   NexusOps: {
@@ -573,9 +597,9 @@ const projectEnglish: Partial<Record<Project["name"], Partial<Project>>> = {
     status: "Supervised Internship",
     role: "Analysis, UX and development",
     description:
-      "Dashboard for consolidating projects, indicators, alerts and priorities in a technology operation.",
+      "Dashboard for IT projects, indicators, alerts and priorities.",
     detail:
-      "NexusOps was developed during the supervised internship to concentrate information that is usually scattered in IT routines. The application brings projects, priorities, indicators and alerts into a single reading experience, making operational follow-up easier. The interface was built with React and Vite, using Recharts for data visualizations.",
+      "I developed NexusOps during a supervised internship to centralize IT projects, priorities, indicators and alerts. The React and Vite interface focuses on quick reading and operational follow-up.",
     category: "Systems"
   },
   StageFlow: {
@@ -583,9 +607,9 @@ const projectEnglish: Partial<Record<Project["name"], Partial<Project>>> = {
     status: "Supervised Internship",
     role: "Requirements, product and development",
     description:
-      "System for organizing interns, supervisors, activities, hours and reports in the same workflow.",
+      "System for tracking internships, hours, activities and reports.",
     detail:
-      "StageFlow emerged during the supervised internship from the need to track people, hours, activities and documents without relying on isolated controls. The system organizes each internship's progress and makes pending items and responsible people more visible. It was developed with HTML, CSS and JavaScript based on the institutional workflow mapping.",
+      "StageFlow organizes people, hours, activities and documents without isolated controls. It was built with HTML, CSS and JavaScript after mapping the institutional workflow.",
     category: "Academic"
   },
   Kiminorte: {
@@ -593,14 +617,15 @@ const projectEnglish: Partial<Record<Project["name"], Partial<Project>>> = {
     status: "Completed",
     role: "Analysis, development and maintenance",
     description:
-      "Corporate digital presence with catalog, company information and a direct quotation journey.",
+      "Corporate website with a catalog and direct quotation flow.",
     detail:
-      "The Kiminorte project was built for a real company and addresses a direct commercial need: presenting products, strengthening institutional presence and making quotation requests easier. I developed a responsive structure with HTML, CSS and JavaScript, prioritizing clarity for customers and simple day-to-day maintenance.",
+      "Kiminorte's website presents the company, organizes the catalog and directs quotation requests. I built the responsive interface with HTML, CSS and JavaScript for straightforward daily maintenance.",
     category: "Commercial"
   }
 };
 
 const certificateEnglish: Partial<Record<Certificate["title"], Partial<Certificate>>> = {
+  "IBM SkillsBuild Data Analytics Certificate": { category: "Data" },
   "Linguagem de Programação Python": { title: "Python Programming Language", category: "Python", hours: "53h" },
   "Banco de Dados": { title: "Database", category: "Data", hours: "38h" },
   "Desenvolvimento Web Completo": { title: "Complete Web Development", category: "Web", hours: "126.5h" },
@@ -614,53 +639,53 @@ const certificateEnglish: Partial<Record<Certificate["title"], Partial<Certifica
 };
 
 const eventEnglish: Record<string, Partial<EventEntry>> = {
-  "SEMINFO — Semana da Informática": {
-    title: "SEMINFO — Computer Science Week",
+  "SEMINFO, Semana da Informática": {
+    title: "SEMINFO, Computer Science Week",
     issuer: "UNIC",
     detail: "Participation on April 24 and 25, 2024 · 40 hours."
   },
-  "Semana de Cursos — Encontro 1": {
-    title: "Course Week — Session 1",
+  "Semana de Cursos, Encontro 1": {
+    title: "Course Week, Session 1",
     issuer: "UNIC · Sep 19, 2022",
     detail: "Academic lecture cycle · 5 hours."
   },
-  "Semana de Cursos — Encontro 2": {
-    title: "Course Week — Session 2",
+  "Semana de Cursos, Encontro 2": {
+    title: "Course Week, Session 2",
     issuer: "UNIC · Sep 20, 2022",
     detail: "Academic lecture cycle · 5 hours."
   },
-  "Semana de Cursos — Encontro 3": {
-    title: "Course Week — Session 3",
+  "Semana de Cursos, Encontro 3": {
+    title: "Course Week, Session 3",
     issuer: "UNIC · Sep 21, 2022",
     detail: "Academic lecture cycle · 5 hours."
   },
-  "Semana de Cursos — Encontro 4": {
-    title: "Course Week — Session 4",
+  "Semana de Cursos, Encontro 4": {
+    title: "Course Week, Session 4",
     issuer: "UNIC · Sep 22, 2022",
     detail: "Academic lecture cycle · 5 hours."
   },
-  "Semana de Cursos — Encontro 5": {
-    title: "Course Week — Session 5",
+  "Semana de Cursos, Encontro 5": {
+    title: "Course Week, Session 5",
     issuer: "UNIC · Sep 23, 2022",
     detail: "Academic lecture cycle · 5 hours."
   },
-  "Estudos Contemporâneos — Encontro 1": {
-    title: "Contemporary Studies — Session 1",
+  "Estudos Contemporâneos, Encontro 1": {
+    title: "Contemporary Studies, Session 1",
     issuer: "UNIC · Nov 14, 2022",
     detail: "Academic lecture cycle · 3 hours."
   },
-  "Estudos Contemporâneos — Encontro 2": {
-    title: "Contemporary Studies — Session 2",
+  "Estudos Contemporâneos, Encontro 2": {
+    title: "Contemporary Studies, Session 2",
     issuer: "UNIC · Nov 16, 2022",
     detail: "Academic lecture cycle · 3 hours."
   },
-  "Estudos Contemporâneos — Encontro 3": {
-    title: "Contemporary Studies — Session 3",
+  "Estudos Contemporâneos, Encontro 3": {
+    title: "Contemporary Studies, Session 3",
     issuer: "UNIC · Nov 17, 2022",
     detail: "Academic lecture cycle · 3 hours."
   },
-  "Estudos Contemporâneos — Encontro 4": {
-    title: "Contemporary Studies — Session 4",
+  "Estudos Contemporâneos, Encontro 4": {
+    title: "Contemporary Studies, Session 4",
     issuer: "UNIC · Nov 18, 2022",
     detail: "Academic lecture cycle · 3 hours."
   }
@@ -676,14 +701,14 @@ const extensionEnglish: Record<string, Partial<ExtensionEntry>> = {
   },
   "Plataforma Web para Eventos Culturais": {
     title: "Web Platform for Cultural Events",
-    period: "August — November 2023",
+    period: "August to November 2023",
     description:
       "Developed a page to promote schedules, artists and information for the Multicultural Festival of Northeastern Art.",
     tags: ["Web platform", "Culture"]
   },
   "Inovação e Empreendedorismo": {
     title: "Innovation and Entrepreneurship",
-    period: "August — September 2024",
+    period: "August to September 2024",
     description:
       "Diagnosed local micro-entrepreneurs' needs, defined requirements and validated simple digital solutions.",
     tags: ["Requirements", "Local businesses"]
@@ -697,7 +722,24 @@ export function localizeProjects(projects: Project[], language: Language): Proje
 
 export function localizeCertificates(certificates: Certificate[], language: Language): Certificate[] {
   if (language === "pt") return certificates;
-  return certificates.map((certificate) => ({ ...certificate, ...certificateEnglish[certificate.title] }));
+  const months: Record<string, string> = {
+    Fev: "Feb",
+    Abr: "Apr",
+    Mai: "May",
+    Ago: "Aug",
+    Set: "Sep",
+    Out: "Oct",
+    Dez: "Dec"
+  };
+
+  return certificates.map((certificate) => {
+    const [month, ...dateParts] = certificate.date.split(" ");
+    return {
+      ...certificate,
+      ...certificateEnglish[certificate.title],
+      date: [months[month] ?? month, ...dateParts].join(" ")
+    };
+  });
 }
 
 export function localizeEvents(events: EventEntry[], language: Language): EventEntry[] {
@@ -709,8 +751,4 @@ export function localizeExtensions(extensions: ExtensionEntry[], language: Langu
   if (language === "pt") return extensions;
   return extensions.map((extension) => ({ ...extension, ...extensionEnglish[extension.title] }));
 }
-
-
-
-
 

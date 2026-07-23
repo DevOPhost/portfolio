@@ -26,7 +26,10 @@ socket.addEventListener("message", (event) => {
     issues.push(message.params.exceptionDetails.text);
   }
   if (message.method === "Runtime.consoleAPICalled" && message.params.type === "error") {
-    issues.push("console.error");
+    const detail = message.params.args
+      .map((argument) => argument.value ?? argument.description ?? argument.type)
+      .join(" ");
+    issues.push(`console.error: ${detail}`);
   }
   const handler = pending.get(message.id);
   if (!handler) return;
@@ -76,7 +79,10 @@ const result = await command("Runtime.evaluate", {
     viewport: [innerWidth, innerHeight],
     bodyWidth: document.body.scrollWidth,
     rootWidth: document.documentElement.scrollWidth,
+    bodyHeight: document.body.scrollHeight,
+    rootHeight: document.documentElement.scrollHeight,
     overflow: Math.max(document.body.scrollWidth, document.documentElement.scrollWidth) > innerWidth,
+    verticalOverflow: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) > innerHeight,
     missingImages: [...document.images].filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.src),
     headings: [...document.querySelectorAll("h1, h2")].map((heading) => heading.textContent.trim()),
     dialogs: document.querySelectorAll('[role="dialog"]').length

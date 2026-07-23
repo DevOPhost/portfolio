@@ -4,14 +4,14 @@ import { technologies, TechnologyMark, tools } from "./TechnologyMark";
 
 type TechnologiesCopy = PortfolioContent["technologies"];
 
-export function Technologies({ copy }: { copy: TechnologiesCopy }) {
+export function Technologies({ copy, sectionId = "stack" }: { copy: TechnologiesCopy; sectionId?: string }) {
   const groups = [
     { title: copy.groups[0][0], description: copy.groups[0][1], items: technologies },
     { title: copy.groups[1][0], description: copy.groups[1][1], items: tools }
   ];
 
   return (
-    <Section id="stack" className="technologies-section">
+    <Section id={sectionId} className="technologies-section">
       <div className="page-grid">
         <SectionIntro
           label={copy.intro.label}

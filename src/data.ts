@@ -1,3 +1,8 @@
+export type ProjectPreview = {
+  type: "scroll" | "screens" | "static" | "cli";
+  images?: string[];
+};
+
 export type Project = {
   name: string;
   kicker: string;
@@ -11,8 +16,7 @@ export type Project = {
   github?: string;
   demo?: string;
   image?: string;
-  accent: string;
-  glyph: string;
+  preview?: ProjectPreview;
 };
 
 export const projects: Project[] = [
@@ -22,14 +26,16 @@ export const projects: Project[] = [
     year: "2026",
     status: "Concluído",
     role: "Produto, UX e desenvolvimento",
-    description: "Guia trilíngue para comparar áreas, tecnologias e caminhos de estudo sem se perder em conteúdo fragmentado.",
-    detail: "Criei o DevAtlas para reunir, em um só lugar, as informações que normalmente ficam espalhadas quando alguém começa a estudar tecnologia. A plataforma organiza áreas de atuação, ferramentas, roadmaps e ideias de projetos em português, inglês e espanhol. Foi desenvolvida com Next.js, React e TypeScript, com foco em navegação clara, conteúdo acessível e manutenção simples.",
-    tags: ["Next.js", "TypeScript", "React"],
+    description: "Guia trilíngue para comparar áreas de tecnologia e montar um caminho de estudo.",
+    detail: "O DevAtlas reúne áreas, ferramentas, roadmaps e ideias de projetos em português, inglês e espanhol. Desenvolvi a plataforma com Next.js, React e TypeScript, priorizando navegação clara e manutenção simples.",
+    tags: ["Next.js", "React", "TypeScript"],
     category: "Produto",
     github: "https://github.com/DevOPhost/dev-atlas",
-    image: "assets/projects/dev-atlas/cover.png",
-    accent: "#8ba4d6",
-    glyph: "DA"
+    image: "assets/projects/dev-atlas/screen-1.png",
+    preview: {
+      type: "screens",
+      images: ["assets/projects/dev-atlas/screen-1.png", "assets/projects/dev-atlas/screen-2.png", "assets/projects/dev-atlas/screen-3.png", "assets/projects/dev-atlas/screen-4.png"]
+    }
   },
   {
     name: "ArcadeX",
@@ -37,28 +43,16 @@ export const projects: Project[] = [
     year: "2026",
     status: "Concluído",
     role: "Produto, front-end e regras de negócio",
-    description: "Ecossistema com 18 jogos, ranking, XP, X-Coins, missões, conquistas, loja e painel administrativo.",
-    detail: "O ArcadeX nasceu da ideia de conectar jogos casuais a uma progressão compartilhada. Além dos 18 jogos, a plataforma reúne ranking, experiência, moeda virtual, missões, conquistas e recursos administrativos. Usei Next.js e TypeScript na aplicação e Supabase para autenticação, persistência e regras relacionadas aos jogadores.",
-    tags: ["Next.js", "TypeScript", "Supabase", "SQL"],
+    description: "Plataforma com 18 jogos, ranking, progressão, missões, conquistas e loja.",
+    detail: "O ArcadeX conecta 18 jogos a um sistema compartilhado de progressão, ranking, missões e conquistas. A aplicação usa Next.js, TypeScript e Supabase para autenticação, dados e regras dos jogadores.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     category: "Produto",
     github: "https://github.com/DevOPhost/arcadex",
-    image: "assets/projects/arcadex/cover.png",
-    accent: "#a18dbb",
-    glyph: "AX"
-  },
-  {
-    name: "Organize",
-    kicker: "Automação segura de arquivos",
-    year: "2026",
-    status: "Concluído",
-    role: "Concepção e desenvolvimento",
-    description: "CLI em Python que organiza arquivos por extensão, antecipa mudanças com dry-run e resolve conflitos com segurança.",
-    detail: "O Organize é uma ferramenta de linha de comando criada para resolver a bagunça recorrente em pastas de trabalho e downloads. O script identifica os arquivos, apresenta uma simulação antes de mover qualquer item e trata nomes duplicados sem sobrescrever conteúdo. Foi escrito em Python com atenção especial à previsibilidade das operações.",
-    tags: ["Python"],
-    category: "Automação",
-    github: "https://github.com/DevOPhost/organize",
-    accent: "#7f9f91",
-    glyph: "OR"
+    image: "assets/projects/arcadex/screen-2.png",
+    preview: {
+      type: "screens",
+      images: ["assets/projects/arcadex/screen-2.png", "assets/projects/arcadex/screen-3.png", "assets/projects/arcadex/screen-4.png", "assets/projects/arcadex/screen-1.png"]
+    }
   },
   {
     name: "TerraVex",
@@ -66,14 +60,17 @@ export const projects: Project[] = [
     year: "2026",
     status: "Concluído",
     role: "Dados, interface e integração",
-    description: "Mapa interativo com indicadores de países e o CambioX para conversões de moedas.",
-    detail: "O TerraVex transforma indicadores de países em uma experiência visual baseada em mapa. A interface permite consultar informações econômicas e usar o CambioX para conversões de moedas sem sair do mesmo produto. O projeto combina HTML, CSS e JavaScript com APIs externas, tratamento de respostas e estados claros para falhas de conexão.",
-    tags: ["JavaScript", "HTML5", "CSS3", "REST APIs"],
+    description: "Mapa interativo de países com indicadores econômicos e conversão de moedas.",
+    detail: "O TerraVex reúne mapa, indicadores econômicos e o CambioX em uma única interface. O projeto usa JavaScript, Leaflet, Chart.js e APIs externas, incluindo tratamento de erros de conexão.",
+    tags: ["JavaScript", "Leaflet", "Chart.js", "REST APIs"],
     category: "Dados",
     github: "https://github.com/DevOPhost/terravex",
+    demo: "https://devophost.github.io/terravex/",
     image: "assets/projects/terravex/cover.png",
-    accent: "#b79b68",
-    glyph: "TV"
+    preview: {
+      type: "static",
+      images: ["assets/projects/terravex/cover.png"]
+    }
   },
   {
     name: "NexusOps",
@@ -81,14 +78,17 @@ export const projects: Project[] = [
     year: "2026",
     status: "Estágio Supervisionado",
     role: "Análise, UX e desenvolvimento",
-    description: "Dashboard para reunir projetos, indicadores, alertas e prioridades de uma operação de tecnologia.",
-    detail: "O NexusOps foi desenvolvido durante o estágio supervisionado para concentrar informações que costumam ficar dispersas na rotina de TI. A aplicação reúne projetos, prioridades, indicadores e alertas em uma leitura única, facilitando o acompanhamento da operação. A interface foi construída com React e Vite, usando Recharts nas visualizações de dados.",
-    tags: ["React", "JavaScript", "Vite", "Recharts"],
+    description: "Dashboard de projetos, indicadores, alertas e prioridades de TI.",
+    detail: "Desenvolvi o NexusOps no estágio supervisionado para centralizar projetos, prioridades, indicadores e alertas de TI. A interface usa React e Vite, com foco em leitura rápida e acompanhamento da operação.",
+    tags: ["React", "Vite", "JavaScript", "MySQL"],
     category: "Sistemas",
     github: "https://github.com/DevOPhost/nexusops",
-    image: "assets/projects/nexusops/cover.png",
-    accent: "#b77f88",
-    glyph: "NX"
+    demo: "https://devophost.github.io/nexusops/",
+    image: "assets/projects/nexusops/screen-1.png",
+    preview: {
+      type: "screens",
+      images: ["assets/projects/nexusops/screen-1.png", "assets/projects/nexusops/screen-2.png", "assets/projects/nexusops/screen-3.png"]
+    }
   },
   {
     name: "StageFlow",
@@ -96,29 +96,50 @@ export const projects: Project[] = [
     year: "2025",
     status: "Estágio Supervisionado",
     role: "Requisitos, produto e desenvolvimento",
-    description: "Sistema para organizar estagiários, supervisores, atividades, horas e relatórios em um mesmo fluxo.",
-    detail: "O StageFlow surgiu no estágio supervisionado a partir da necessidade de acompanhar pessoas, horas, atividades e documentos sem depender de controles isolados. O sistema organiza o progresso de cada estágio e deixa pendências e responsáveis mais visíveis. Foi desenvolvido com HTML, CSS e JavaScript a partir do levantamento do fluxo institucional.",
-    tags: ["JavaScript", "HTML5", "CSS3"],
+    description: "Sistema para controlar estágios, horas, atividades e relatórios.",
+    detail: "O StageFlow organiza pessoas, horas, atividades e documentos sem depender de controles isolados. Foi desenvolvido com HTML, CSS e JavaScript após o mapeamento do fluxo institucional.",
+    tags: ["JavaScript", "HTML5", "CSS3", "Bootstrap", "Chart.js"],
     category: "Acadêmico",
     github: "https://github.com/DevOPhost/stageflow",
-    image: "assets/projects/stageflow/cover.png",
-    accent: "#7899b4",
-    glyph: "SF"
+    demo: "https://devophost.github.io/stageflow/",
+    image: "assets/projects/stageflow/screen-1.png",
+    preview: {
+      type: "screens",
+      images: ["assets/projects/stageflow/screen-1.png", "assets/projects/stageflow/screen-2.png", "assets/projects/stageflow/screen-3.png"]
+    }
   },
+  {
+    name: "Organize",
+    kicker: "Automação segura de arquivos",
+    year: "2025",
+    status: "Concluído",
+    role: "Concepção e desenvolvimento",
+    description: "CLI em Python que organiza arquivos após uma prévia segura.",
+    detail: "O Organize classifica arquivos, mostra as mudanças em modo dry-run e evita sobrescritas quando encontra nomes duplicados. É uma automação pequena, criada para pastas de trabalho e downloads.",
+    tags: ["Python", "CLI"],
+    category: "Automação",
+    github: "https://github.com/DevOPhost/organize",
+    preview: {
+      type: "cli"
+    }
+  },
+
   {
     name: "Kiminorte",
     kicker: "Produto comercial em operação",
-    year: "2024—2026",
+    year: "2024 a 2026",
     status: "Concluído",
     role: "Análise, desenvolvimento e manutenção",
-    description: "Presença digital corporativa com catálogo, informações empresariais e uma jornada direta de orçamento.",
-    detail: "O projeto da Kiminorte foi construído para uma empresa real e atende uma necessidade comercial direta: apresentar produtos, fortalecer a presença institucional e facilitar pedidos de orçamento. Desenvolvi uma estrutura responsiva em HTML, CSS e JavaScript, priorizando clareza para o cliente e manutenção simples no dia a dia.",
-    tags: ["JavaScript", "HTML5", "CSS3"],
+    description: "Site corporativo com catálogo e fluxo direto de orçamento.",
+    detail: "O site da Kiminorte apresenta a empresa, organiza o catálogo e direciona pedidos de orçamento. Desenvolvi a interface responsiva em HTML, CSS e JavaScript, com manutenção simples para a rotina comercial.",
+    tags: ["JavaScript", "HTML5", "CSS3", "WhatsApp Business"],
     category: "Comercial",
     demo: "https://kiminorte.com/",
-    image: "assets/projects/kiminorte/cover.png",
-    accent: "#3088c7",
-    glyph: "KM"
+    image: "assets/projects/kiminorte/screen-1.png",
+    preview: {
+      type: "screens",
+      images: ["assets/projects/kiminorte/screen-1.png", "assets/projects/kiminorte/screen-2.png", "assets/projects/kiminorte/screen-3.png"]
+    }
   }
 ];
 
@@ -133,6 +154,7 @@ export type Certificate = {
 };
 
 export const certificates: Certificate[] = [
+  { title: "IBM SkillsBuild Data Analytics Certificate", issuer: "IBM SkillsBuild", date: "Jul 2026", category: "Dados", image: "assets/certificates/ibm-data-analytics-certificate.png", credential: "https://www.credly.com/badges/b9952a5e-ee7a-46a8-8c99-3db138e47df4/public_url" },
   { title: "Data Classification", issuer: "IBM SkillsBuild", date: "Jun 2026", category: "Dados", image: "assets/certificates/ibm-data-classification.png", credential: "https://www.credly.com/badges/baf6172f-9297-4213-a4e6-bffd32f1d582" },
   { title: "Cybersecurity Fundamentals", issuer: "IBM SkillsBuild", date: "Jun 2026", category: "Segurança", image: "assets/certificates/ibm-cybersecurity.png", credential: "https://www.credly.com/badges/4623bf02-4a9a-4b8f-b7a1-15f1fc3bb22e" },
   { title: "Web Development Fundamentals", issuer: "IBM SkillsBuild", date: "Jun 2026", category: "Web", image: "assets/certificates/ibm-web-development.png", credential: "https://www.credly.com/badges/d62c03da-f393-4726-b488-6e48c6730793" },
@@ -156,70 +178,70 @@ export type EventEntry = {
 
 export const events: EventEntry[] = [
   {
-    title: "SEMINFO — Semana da Informática",
+    title: "SEMINFO, Semana da Informática",
     issuer: "UNIC",
     detail: "Participação em 24 e 25 de abril de 2024 · 40 horas.",
     file: "assets/events/seminfo-2024.pdf",
     image: "assets/events/previews/seminfo-2024.png"
   },
   {
-    title: "Semana de Cursos — Encontro 1",
+    title: "Semana de Cursos, Encontro 1",
     issuer: "UNIC · 19/09/2022",
     detail: "Ciclo de palestras da programação acadêmica · 5 horas.",
     file: "assets/events/semana-cursos-2022-09-19.pdf",
     image: "assets/events/previews/semana-cursos-2022-09-19.png"
   },
   {
-    title: "Semana de Cursos — Encontro 2",
+    title: "Semana de Cursos, Encontro 2",
     issuer: "UNIC · 20/09/2022",
     detail: "Ciclo de palestras da programação acadêmica · 5 horas.",
     file: "assets/events/semana-cursos-2022-09-20.pdf",
     image: "assets/events/previews/semana-cursos-2022-09-20.png"
   },
   {
-    title: "Semana de Cursos — Encontro 3",
+    title: "Semana de Cursos, Encontro 3",
     issuer: "UNIC · 21/09/2022",
     detail: "Ciclo de palestras da programação acadêmica · 5 horas.",
     file: "assets/events/semana-cursos-2022-09-21.pdf",
     image: "assets/events/previews/semana-cursos-2022-09-21.png"
   },
   {
-    title: "Semana de Cursos — Encontro 4",
+    title: "Semana de Cursos, Encontro 4",
     issuer: "UNIC · 22/09/2022",
     detail: "Ciclo de palestras da programação acadêmica · 5 horas.",
     file: "assets/events/semana-cursos-2022-09-22.pdf",
     image: "assets/events/previews/semana-cursos-2022-09-22.png"
   },
   {
-    title: "Semana de Cursos — Encontro 5",
+    title: "Semana de Cursos, Encontro 5",
     issuer: "UNIC · 23/09/2022",
     detail: "Ciclo de palestras da programação acadêmica · 5 horas.",
     file: "assets/events/semana-cursos-2022-09-23.pdf",
     image: "assets/events/previews/semana-cursos-2022-09-23.png"
   },
   {
-    title: "Estudos Contemporâneos — Encontro 1",
+    title: "Estudos Contemporâneos, Encontro 1",
     issuer: "UNIC · 14/11/2022",
     detail: "Ciclo de palestras da programação acadêmica · 3 horas.",
     file: "assets/events/semana-estudos-2022-11-14.pdf",
     image: "assets/events/previews/semana-estudos-2022-11-14.png"
   },
   {
-    title: "Estudos Contemporâneos — Encontro 2",
+    title: "Estudos Contemporâneos, Encontro 2",
     issuer: "UNIC · 16/11/2022",
     detail: "Ciclo de palestras da programação acadêmica · 3 horas.",
     file: "assets/events/semana-estudos-2022-11-16.pdf",
     image: "assets/events/previews/semana-estudos-2022-11-16.png"
   },
   {
-    title: "Estudos Contemporâneos — Encontro 3",
+    title: "Estudos Contemporâneos, Encontro 3",
     issuer: "UNIC · 17/11/2022",
     detail: "Ciclo de palestras da programação acadêmica · 3 horas.",
     file: "assets/events/semana-estudos-2022-11-17.pdf",
     image: "assets/events/previews/semana-estudos-2022-11-17.png"
   },
   {
-    title: "Estudos Contemporâneos — Encontro 4",
+    title: "Estudos Contemporâneos, Encontro 4",
     issuer: "UNIC · 18/11/2022",
     detail: "Ciclo de palestras da programação acadêmica · 3 horas.",
     file: "assets/events/semana-estudos-2022-11-18.pdf",
@@ -233,6 +255,9 @@ export type ExtensionEntry = {
   description: string;
   tags: string[];
   file: string;
+  logo: string;
+  logoAlt: string;
+  logoFit?: "wide" | "square";
 };
 
 export const extensions: ExtensionEntry[] = [
@@ -241,21 +266,30 @@ export const extensions: ExtensionEntry[] = [
     period: "Agosto de 2022",
     description: "Condução de atividades de informática básica, lógica e uso responsável da tecnologia para a comunidade local.",
     tags: ["Inclusão digital", "Educação"],
-    file: "assets/documents/projeto-extensao-i.pdf"
+    file: "assets/documents/projeto-extensao-i.pdf",
+    logo: "assets/institutions/seduc-gov-mt.png",
+    logoAlt: "Logo da SEDUC e Governo de Mato Grosso",
+    logoFit: "wide"
   },
   {
     title: "Plataforma Web para Eventos Culturais",
-    period: "Agosto — Novembro de 2023",
+    period: "Agosto a Novembro de 2023",
     description: "Desenvolvimento de uma página para divulgar programação, artistas e informações do Festival Multicultural de Arte Nordestina.",
     tags: ["Plataforma web", "Cultura"],
-    file: "assets/documents/projeto-extensao-ii.pdf"
+    file: "assets/documents/projeto-extensao-ii.pdf",
+    logo: "assets/institutions/mt-criativo.jpg",
+    logoAlt: "Logo do MT Criativo",
+    logoFit: "square"
   },
   {
     title: "Inovação e Empreendedorismo",
-    period: "Agosto — Setembro de 2024",
+    period: "Agosto a Setembro de 2024",
     description: "Diagnóstico de necessidades de microempreendedores, definição de requisitos e validação de soluções digitais simples.",
     tags: ["Requisitos", "Negócios locais"],
-    file: "assets/documents/projeto-extensao-iii.pdf"
+    file: "assets/documents/projeto-extensao-iii.pdf",
+    logo: "assets/institutions/accuiaba-cropped.png",
+    logoAlt: "Logo da ACCUIABÁ, Associação Comercial e Empresarial de Cuiabá",
+    logoFit: "wide"
   }
 ];
 

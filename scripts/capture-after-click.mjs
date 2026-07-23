@@ -45,6 +45,10 @@ await command("Emulation.setDeviceMetricsOverride", {
 await command("Page.navigate", { url });
 await new Promise((resolve) => setTimeout(resolve, 1100));
 await command("Runtime.evaluate", {
+  expression: 'document.documentElement.style.scrollBehavior = "auto"; const target = location.hash ? document.querySelector(location.hash) : null; if (target) target.scrollIntoView()'
+});
+await new Promise((resolve) => setTimeout(resolve, 250));
+await command("Runtime.evaluate", {
   expression: `document.querySelector(${JSON.stringify(selector)})?.click()`
 });
 await new Promise((resolve) => setTimeout(resolve, 500));

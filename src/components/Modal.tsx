@@ -16,13 +16,15 @@ export function Modal({
   onClose,
   children,
   size = "project",
-  origin
+  origin,
+  closeLabel = "Fechar"
 }: {
   label: string;
   onClose: () => void;
   children: ReactNode;
   size?: "project" | "document" | "accessibility";
   origin?: ModalOrigin;
+  closeLabel?: string;
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -88,7 +90,7 @@ export function Modal({
         style={style}
         onMouseDown={(event) => event.stopPropagation()}
       >
-        <button ref={closeRef} className="overlay__close" type="button" onClick={onClose} aria-label="Fechar">
+        <button ref={closeRef} className="overlay__close" type="button" onClick={onClose} aria-label={closeLabel}>
           <X />
         </button>
         {children}

@@ -1,8 +1,21 @@
 # Leonardo Farias Martins | Portfolio
 
-Personal portfolio for Leonardo Farias Martins, a Systems Analyst and Computer Science graduate based in Brazil. The site presents professional experience, selected projects, technologies, education, certificates, extension work, resume links and contact channels.
+Personal portfolio and professional services presentation for Leonardo Farias Martins, a Systems Analyst and Developer with a degree in Computer Science.
 
-The portfolio is bilingual: Portuguese is the default language and English is available through the language selector in the navigation bar.
+The website serves two audiences: clients looking for digital products and application security support, and recruiters interested in professional experience, projects and education. Portuguese is the default language, with an English version available from the language selector.
+
+## Pages
+
+The project uses a Vite multi-page application structure with six real HTML entry points:
+
+- **Home**: value proposition, featured services, selected projects and main calls to action.
+- **Services**: websites, web systems, responsive mobile experiences, automation, integrations and application security consulting.
+- **Projects**: product showcases based on real project interfaces.
+- **About**: professional profile, work approach, technologies and differentiators.
+- **Career**: experience, education, supervised internships, certificates, events, resume and supporting documents.
+- **Contact**: separate paths for clients and recruiters.
+
+Each page has its own canonical URL, title, description and social sharing metadata.
 
 ## Tech stack
 
@@ -14,17 +27,24 @@ The portfolio is bilingual: Portuguese is the default language and English is av
 - Simple Icons
 - GitHub Pages
 
-## Main sections
+## Project structure
 
-- Hero with professional summary and language information
-- Experience and mandatory supervised internships
-- Selected projects
-- Technologies and tools
-- Academic education
-- Certificates, courses and events
-- Extension and tech volunteering
-- Resume
-- Contact
+```text
+.
+├── index.html
+├── servicos/index.html
+├── projetos/index.html
+├── sobre/index.html
+├── carreira/index.html
+├── contato/index.html
+├── src/
+├── public/
+├── scripts/
+├── vite.config.ts
+└── .github/workflows/deploy.yml
+```
+
+The six HTML files share the same React application. Vite builds each one as an independent page while reusing the application bundle and public assets.
 
 ## Running locally
 
@@ -46,13 +66,13 @@ Create a production build:
 npm run build
 ```
 
-Preview the production build locally:
+Preview the production build:
 
 ```bash
 npm run preview
 ```
 
-Run TypeScript checks:
+Run the TypeScript check:
 
 ```bash
 npm run lint
@@ -60,34 +80,51 @@ npm run lint
 
 ## GitHub Pages deployment
 
-This project includes a GitHub Actions workflow at `.github/workflows/deploy.yml`.
+The repository includes a deployment workflow at [deploy.yml](.github/workflows/deploy.yml).
+
+For production builds, Vite uses `/portfolio/` as the base path. During local development it uses `/`. The build produces the six page directories inside `dist`, which allows direct access and page refreshes on GitHub Pages.
 
 Recommended setup:
 
-1. Push the project to `https://github.com/DevOPhost/portfolio.git`.
-2. In GitHub, open **Settings > Pages**.
-3. Set the source to **GitHub Actions**.
+1. Push the repository to `https://github.com/DevOPhost/portfolio.git`.
+2. Open **Settings > Pages** on GitHub.
+3. Select **GitHub Actions** as the publishing source.
 4. Push to the `main` branch or run the workflow manually.
 
-Vite uses a relative base (`./`), which keeps the build portable and works well for this static portfolio on GitHub Pages.
+Do not commit `node_modules` or `dist`. Both are generated locally and already covered by `.gitignore`.
 
-## Useful links
+## Contact channels
 
+- Portfolio: https://devophost.github.io/portfolio/
+- Email: [hosttm123@gmail.com](mailto:hosttm123@gmail.com)
 - GitHub: https://github.com/DevOPhost
 - LinkedIn: https://www.linkedin.com/in/leonardo-farias-martins-160340215/
-- Kiminorte: https://kiminorte.com/
+- Project inquiries: use the **Request a project** WhatsApp CTA available on the website.
 
 ## Note
 
-This is a personal portfolio. Some commercial or academic documents are included only as supporting material for Leonardo's professional presentation.
+This is a personal portfolio. Academic documents and certificates are available as supporting material in the Career page and are not part of the main commercial journey.
 
 ---
 
-# Leonardo Farias Martins — Portfólio
+# Leonardo Farias Martins | Portfólio
 
-Portfólio pessoal de Leonardo Farias Martins, Analista de Sistemas e bacharel em Ciência da Computação no Brasil. O site apresenta experiência profissional, projetos selecionados, tecnologias, formação, certificados, extensão, currículo e canais de contato.
+Portfólio pessoal e apresentação de serviços profissionais de Leonardo Farias Martins, Analista de Sistemas e Desenvolvedor formado em Ciência da Computação.
 
-O portfólio é bilíngue: Português é o idioma padrão e Inglês está disponível pelo seletor de idioma na navegação.
+O site atende a dois públicos: clientes que procuram produtos digitais e apoio em segurança de aplicações, e recrutadores interessados em experiência, projetos e formação. Português é o idioma padrão, com versão em inglês disponível pelo seletor de idioma.
+
+## Páginas
+
+O projeto usa uma estrutura multi-page application do Vite com seis entradas HTML reais:
+
+- **Início**: proposta de valor, serviços em destaque, projetos selecionados e principais chamadas para ação.
+- **Serviços**: sites, sistemas web, experiências mobile responsivas, automações, integrações e consultoria em segurança de aplicações.
+- **Projetos**: showcases de produto baseados nas interfaces reais dos projetos.
+- **Sobre**: perfil profissional, forma de trabalho, tecnologias e diferenciais.
+- **Carreira**: experiência, formação, estágios supervisionados, certificados, eventos, currículo e documentos de apoio.
+- **Contato**: caminhos separados para clientes e recrutadores.
+
+Cada página possui URL canônica, título, descrição e metadados próprios para compartilhamento.
 
 ## Tecnologias
 
@@ -99,17 +136,24 @@ O portfólio é bilíngue: Português é o idioma padrão e Inglês está dispon
 - Simple Icons
 - GitHub Pages
 
-## Seções principais
+## Estrutura do projeto
 
-- Hero com resumo profissional e idiomas
-- Experiência e estágios supervisionados obrigatórios
-- Projetos selecionados
-- Tecnologias e ferramentas
-- Formação acadêmica
-- Certificados, cursos e eventos
-- Extensão e voluntariado tech
-- Currículo
-- Contato
+```text
+.
+├── index.html
+├── servicos/index.html
+├── projetos/index.html
+├── sobre/index.html
+├── carreira/index.html
+├── contato/index.html
+├── src/
+├── public/
+├── scripts/
+├── vite.config.ts
+└── .github/workflows/deploy.yml
+```
+
+Os seis arquivos HTML usam a mesma aplicação React. O Vite gera cada entrada como uma página independente, reaproveitando o bundle da aplicação e os assets públicos.
 
 ## Como rodar localmente
 
@@ -131,13 +175,13 @@ Gere o build de produção:
 npm run build
 ```
 
-Visualize o build localmente:
+Visualize o build de produção:
 
 ```bash
 npm run preview
 ```
 
-Rode a checagem de TypeScript:
+Execute a verificação do TypeScript:
 
 ```bash
 npm run lint
@@ -145,23 +189,27 @@ npm run lint
 
 ## Publicação no GitHub Pages
 
-O projeto já inclui um workflow em `.github/workflows/deploy.yml`.
+O repositório inclui o workflow de publicação em [deploy.yml](.github/workflows/deploy.yml).
+
+No build de produção, o Vite usa `/portfolio/` como caminho-base. Durante o desenvolvimento local, usa `/`. O build gera os seis diretórios de páginas dentro de `dist`, permitindo acesso direto e atualização da página no GitHub Pages.
 
 Configuração recomendada:
 
-1. Envie o projeto para `https://github.com/DevOPhost/portfolio.git`.
+1. Envie o repositório para `https://github.com/DevOPhost/portfolio.git`.
 2. No GitHub, abra **Settings > Pages**.
 3. Selecione **GitHub Actions** como origem da publicação.
 4. Faça push para a branch `main` ou execute o workflow manualmente.
 
-O Vite usa base relativa (`./`), mantendo o build portátil e adequado para este portfólio estático no GitHub Pages.
+Não versione `node_modules` ou `dist`. Ambos são gerados localmente e já estão cobertos pelo `.gitignore`.
 
-## Links úteis
+## Canais de contato
 
+- Portfólio: https://devophost.github.io/portfolio/
+- E-mail: [hosttm123@gmail.com](mailto:hosttm123@gmail.com)
 - GitHub: https://github.com/DevOPhost
 - LinkedIn: https://www.linkedin.com/in/leonardo-farias-martins-160340215/
-- Kiminorte: https://kiminorte.com/
+- Solicitações de projeto: use o CTA **Solicitar projeto** do WhatsApp disponível no site.
 
 ## Observação
 
-Este é um portfólio pessoal. Alguns documentos comerciais ou acadêmicos aparecem apenas como material de apoio à apresentação profissional de Leonardo.
+Este é um portfólio pessoal. Documentos acadêmicos e certificados ficam disponíveis como material de apoio na página Carreira e não fazem parte da jornada comercial principal.

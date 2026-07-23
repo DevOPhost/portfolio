@@ -1,35 +1,43 @@
 import {
-  BarChart3,
-  Code2,
-  Database,
-  FileSpreadsheet,
-  Network
-} from "lucide-react";
-import {
+  siBootstrap,
+  siChartdotjs,
   siCisco,
   siCss,
   siGit,
   siGithub,
   siHtml5,
   siJavascript,
+  siLeaflet,
   siMysql,
   siNextdotjs,
   siNodedotjs,
+  siPostgresql,
   siPostman,
   siPython,
   siReact,
   siSupabase,
+  siTailwindcss,
   siTypescript,
-  siVite
+  siVite,
+  siWhatsapp
 } from "simple-icons";
-import { type CSSProperties, type ComponentType, type SVGProps } from "react";
+import {
+  Braces,
+  Code2,
+  Database,
+  FileSpreadsheet,
+  SquareTerminal,
+  Workflow,
+  type LucideIcon
+} from "lucide-react";
+import { type CSSProperties } from "react";
 
 type BrandIcon = { title: string; path: string; hex: string };
 
 export type Technology = {
   name: string;
   icon?: BrandIcon;
-  fallback?: ComponentType<SVGProps<SVGSVGElement>>;
+  equivalentIcon?: LucideIcon;
 };
 
 export const technologies: Technology[] = [
@@ -42,20 +50,26 @@ export const technologies: Technology[] = [
   { name: "Next.js", icon: siNextdotjs },
   { name: "Node.js", icon: siNodedotjs },
   { name: "Vite", icon: siVite },
+  { name: "Tailwind CSS", icon: siTailwindcss },
   { name: "Supabase", icon: siSupabase },
-  { name: "SQL", fallback: Database },
+  { name: "PostgreSQL", icon: siPostgresql },
   { name: "MySQL", icon: siMysql },
-  { name: "Recharts", fallback: BarChart3 },
-  { name: "REST APIs", fallback: Network }
+  { name: "Leaflet", icon: siLeaflet },
+  { name: "Chart.js", icon: siChartdotjs },
+  { name: "Bootstrap", icon: siBootstrap },
+  { name: "WhatsApp Business", icon: siWhatsapp },
+  { name: "SQL", equivalentIcon: Database },
+  { name: "REST APIs", equivalentIcon: Braces },
+  { name: "CLI", equivalentIcon: SquareTerminal }
 ];
 
 export const tools: Technology[] = [
   { name: "Git", icon: siGit },
   { name: "GitHub", icon: siGithub },
   { name: "Postman", icon: siPostman },
-  { name: "VS Code", fallback: Code2 },
-  { name: "Excel", fallback: FileSpreadsheet },
-  { name: "ERP", fallback: Database },
+  { name: "VS Code", equivalentIcon: Code2 },
+  { name: "Excel", equivalentIcon: FileSpreadsheet },
+  { name: "ERP", equivalentIcon: Workflow },
   { name: "Packet Tracer", icon: siCisco }
 ];
 
@@ -68,15 +82,17 @@ export function TechnologyMark({
   name: string;
   className?: string;
 }) {
-  const technology: Technology = registry.get(name) ?? { name, fallback: Code2 };
+  const technology: Technology = registry.get(name) ?? { name };
+  const EquivalentIcon = technology.equivalentIcon;
+  const hasIcon = Boolean(technology.icon || EquivalentIcon);
 
   return (
-    <span className={`technology-mark ${className}`.trim()} title={technology.name}>
-      {technology.icon ? (
+    <span className={`technology-mark ${hasIcon ? "technology-mark--with-icon" : "technology-mark--text"} ${className}`.trim()} title={technology.name}>
+      {technology.icon && (
         <svg
           viewBox="0 0 24 24"
-          role="img"
-          aria-label={`Logo ${technology.name}`}
+          aria-hidden="true"
+          focusable="false"
           style={{
             "--brand-color": ["Next.js", "GitHub"].includes(technology.name)
               ? "var(--text)"
@@ -85,11 +101,9 @@ export function TechnologyMark({
         >
           <path d={technology.icon.path} />
         </svg>
-      ) : (
-        (() => {
-          const Fallback = technology.fallback ?? Code2;
-          return <Fallback aria-hidden="true" />;
-        })()
+      )}
+      {EquivalentIcon && (
+        <EquivalentIcon className="technology-mark__equivalent" aria-hidden="true" strokeWidth={1.8} />
       )}
       <strong>{technology.name}</strong>
     </span>
