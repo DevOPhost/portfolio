@@ -80,9 +80,7 @@ npm run lint
 
 ## GitHub Pages deployment
 
-The repository includes a deployment workflow at [deploy.yml](.github/workflows/deploy.yml).
-
-For production builds, Vite uses `/portfolio/` as the base path. During local development it uses `/`. The build produces the six page directories inside `dist`, which allows direct access and page refreshes on GitHub Pages.
+The repository includes a deployment workflow at [deploy.yml](.github/workflows/deploy.yml). The workflow runs `npm run build:github`, which sets `/portfolio/` as the base path. The build produces the six page directories inside `dist`, which allows direct access and page refreshes on GitHub Pages.
 
 Recommended setup:
 
@@ -90,6 +88,10 @@ Recommended setup:
 2. Open **Settings > Pages** on GitHub.
 3. Select **GitHub Actions** as the publishing source.
 4. Push to the `main` branch or run the workflow manually.
+
+## Cloudflare Pages deployment
+
+The default `npm run build` uses `/` as the base path and is intended for Cloudflare Pages. Use the React (Vite) preset, `npm run build` as the build command, `dist` as the output directory, an empty root directory, and `main` as the production branch.
 
 Do not commit `node_modules` or `dist`. Both are generated locally and already covered by `.gitignore`.
 
@@ -189,9 +191,7 @@ npm run lint
 
 ## Publicação no GitHub Pages
 
-O repositório inclui o workflow de publicação em [deploy.yml](.github/workflows/deploy.yml).
-
-No build de produção, o Vite usa `/portfolio/` como caminho-base. Durante o desenvolvimento local, usa `/`. O build gera os seis diretórios de páginas dentro de `dist`, permitindo acesso direto e atualização da página no GitHub Pages.
+O repositório inclui o workflow de publicação em [deploy.yml](.github/workflows/deploy.yml). O workflow executa `npm run build:github`, que define `/portfolio/` como caminho-base. O build gera os seis diretórios de páginas dentro de `dist`, permitindo acesso direto e atualização da página no GitHub Pages.
 
 Configuração recomendada:
 
@@ -199,6 +199,10 @@ Configuração recomendada:
 2. No GitHub, abra **Settings > Pages**.
 3. Selecione **GitHub Actions** como origem da publicação.
 4. Faça push para a branch `main` ou execute o workflow manualmente.
+
+## Publicação no Cloudflare Pages
+
+O comando padrão `npm run build` usa `/` como caminho-base e é destinado ao Cloudflare Pages. Use o preset React (Vite), `npm run build` como comando de build, `dist` como diretório de saída, diretório raiz vazio e `main` como branch de produção.
 
 Não versione `node_modules` ou `dist`. Ambos são gerados localmente e já estão cobertos pelo `.gitignore`.
 

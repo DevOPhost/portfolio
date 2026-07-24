@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --configLoader runner",
     "build": "tsc -b && vite build --configLoader runner",
+    "build:github": "tsc -b && vite build --configLoader runner --base /portfolio/",
     "preview": "vite preview --configLoader runner",
     "lint": "tsc -p tsconfig.app.json --noEmit",
     "typecheck": "tsc -p tsconfig.app.json --noEmit"
