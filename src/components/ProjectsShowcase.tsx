@@ -208,6 +208,10 @@ export function ProjectsShowcase({
 }) {
   const [selected, setSelected] = useState<Project | null>(null);
   const heading = intro ?? copy.intro;
+  const featuredProject = projects.find((project) => project.name === "Kiminorte");
+  const orderedProjects = featuredProject
+    ? [featuredProject, ...projects.filter((project) => project !== featuredProject)]
+    : projects;
 
   return (
     <>
@@ -220,11 +224,11 @@ export function ProjectsShowcase({
           />
 
           <div className="projects-grid">
-            {projects.map((project) => {
+            {orderedProjects.map((project) => {
               const onlineLabel = project.name === "Kiminorte" ? copy.labels.website : copy.labels.online;
               return (
                 <article
-                  className="project-card"
+                  className={`project-card${project.name === "Kiminorte" ? " project-card--featured" : ""}`}
                   key={project.name}
                 >
                   <button
@@ -284,4 +288,3 @@ export function ProjectsShowcase({
     </>
   );
 }
-

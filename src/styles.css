@@ -4880,6 +4880,73 @@ body {
   transform: none !important;
 }
 
+/* Project showcase alignment */
+
+.projects-grid {
+  align-items: stretch;
+}
+
+.project-card {
+  height: 100%;
+}
+
+.project-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.55fr);
+  min-height: 430px;
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--line-strong));
+  background:
+    linear-gradient(125deg, color-mix(in srgb, var(--surface), var(--accent) 5%), var(--surface-soft));
+}
+
+.project-card--featured .project-card__media {
+  height: 100%;
+  border-right: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: 24px 0 0 24px;
+}
+
+.project-card--featured .project-preview {
+  height: 100%;
+  min-height: 430px;
+  aspect-ratio: auto;
+}
+
+.project-card--featured .project-card__content {
+  justify-content: center;
+  padding: clamp(30px, 4vw, 54px);
+}
+
+.project-card--featured h3 {
+  font-size: clamp(2.25rem, 4vw, 3.7rem);
+}
+
+@media (max-width: 900px) {
+  .project-card--featured {
+    display: flex;
+    min-height: 0;
+  }
+
+  .project-card--featured .project-card__media {
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 24px 24px 0 0;
+  }
+
+  .project-card--featured .project-preview {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-card--featured .project-card__content {
+    justify-content: flex-start;
+    padding: 24px;
+  }
+}
+
 
 /* Institution logos refinement */
 .internship-card__header {
@@ -5014,4 +5081,3 @@ body {
     padding: 45px 0;
   }
 }
-
