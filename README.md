@@ -98,7 +98,7 @@ Do not commit `node_modules` or `dist`. Both are generated locally and already c
 ## Contact channels
 
 - Portfolio: https://devophost.github.io/portfolio/
-- Email: [hosttm123@gmail.com](mailto:hosttm123@gmail.com)
+- Email: [leonardofarias.tech@gmail.com](mailto:leonardofarias.tech@gmail.com)
 - GitHub: https://github.com/DevOPhost
 - LinkedIn: https://www.linkedin.com/in/leonardo-farias-martins-160340215/
 - Project inquiries: use the **Request a project** WhatsApp CTA available on the website.
@@ -209,7 +209,7 @@ Não versione `node_modules` ou `dist`. Ambos são gerados localmente e já est�
 ## Canais de contato
 
 - Portfólio: https://devophost.github.io/portfolio/
-- E-mail: [hosttm123@gmail.com](mailto:hosttm123@gmail.com)
+- E-mail: [leonardofarias.tech@gmail.com](mailto:leonardofarias.tech@gmail.com)
 - GitHub: https://github.com/DevOPhost
 - LinkedIn: https://www.linkedin.com/in/leonardo-farias-martins-160340215/
 - Solicitações de projeto: use o CTA **Solicitar projeto** do WhatsApp disponível no site.
