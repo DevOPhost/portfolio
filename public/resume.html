@@ -3,131 +3,306 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Currículo de Leonardo Farias Martins, Analista de Sistemas e Desenvolvedor."
+    />
     <title>Currículo | Leonardo Farias Martins</title>
     <style>
-      :root { --ink:#0d1a22; --muted:#52656f; --line:#dce5e9; --blue:#087fa8; }
-      * { box-sizing:border-box; }
-      body { margin:0; color:var(--ink); background:#eef3f5; font:13px/1.55 Arial,sans-serif; }
-      main { width:210mm; min-height:297mm; margin:20px auto; padding:18mm; background:white; box-shadow:0 15px 50px #24333b20; }
-      header { display:grid; grid-template-columns:1fr auto; gap:30px; padding-bottom:22px; border-bottom:2px solid var(--ink); }
-      h1 { margin:0; font-size:32px; line-height:1.05; letter-spacing:-1.2px; }
-      header p { margin:8px 0 0; color:var(--blue); font-weight:700; }
-      .links { display:flex; flex-direction:column; align-items:flex-end; gap:4px; color:var(--muted); font-size:10px; }
-      .links a { color:inherit; text-decoration:none; }
-      .summary { margin:20px 0 23px; color:#30434d; font-size:12px; }
-      .grid { display:grid; grid-template-columns:1.7fr .85fr; gap:32px; }
-      section { margin-bottom:24px; }
-      h2 { margin:0 0 12px; color:var(--blue); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; }
-      h3 { margin:0; font-size:14px; }
-      .meta { margin:3px 0 9px; color:var(--muted); font-size:10px; }
-      ul { margin:8px 0 0; padding-left:17px; }
-      li { margin-bottom:4px; }
-      .item { margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid var(--line); }
-      .item:last-child { border:0; }
-      .skills { display:flex; flex-wrap:wrap; gap:6px; }
-      .skills span { padding:5px 7px; color:#31505e; background:#eef5f7; border-radius:4px; font-size:9px; }
-      .metric { display:grid; grid-template-columns:44px 1fr; align-items:center; gap:8px; margin-bottom:10px; }
-      .metric strong { color:var(--blue); font-size:18px; }
-      .metric span { color:var(--muted); font-size:9px; line-height:1.3; }
-      footer { margin-top:18px; padding-top:12px; color:#74848c; border-top:1px solid var(--line); font-size:9px; text-align:center; }
-      @page { size:A4; margin:0; }
-      @media print { body { background:white; } main { margin:0; box-shadow:none; } }
+      :root {
+        color-scheme: light;
+        --ink: #111827;
+        --muted: #4b5563;
+        --line: #cbd5e1;
+        --paper: #ffffff;
+        --canvas: #eef1f4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--canvas);
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--canvas);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.36;
+      }
+
+      main {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 16px auto;
+        padding: 14mm 14.5mm 12.5mm;
+        background: var(--paper);
+        box-shadow: 0 12px 36px rgb(15 23 42 / 12%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .identity {
+        padding-bottom: 9px;
+        border-bottom: 1.5px solid var(--ink);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 23pt;
+        line-height: 1;
+        letter-spacing: -0.35px;
+      }
+
+      .headline {
+        margin: 5px 0 0;
+        font-size: 10.5pt;
+        font-weight: 700;
+      }
+
+      .contact {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 8.9pt;
+        line-height: 1.4;
+      }
+
+      .contact span {
+        white-space: nowrap;
+      }
+
+      section {
+        margin-top: 11px;
+      }
+
+      h2 {
+        margin: 0 0 5.5px;
+        padding-bottom: 2px;
+        border-bottom: 1px solid var(--line);
+        font-size: 9.3pt;
+        line-height: 1.2;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 10.25pt;
+        line-height: 1.25;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .summary {
+        color: #253044;
+      }
+
+      .entry + .entry {
+        margin-top: 7px;
+      }
+
+      .entry-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .entry-heading time,
+      .meta {
+        color: var(--muted);
+        font-size: 8.8pt;
+      }
+
+      .entry-heading time {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      .meta {
+        margin-top: 1px;
+      }
+
+      ul {
+        margin: 3px 0 0;
+        padding-left: 16px;
+      }
+
+      li {
+        margin: 1px 0;
+        padding-left: 1px;
+      }
+
+      .projects .entry + .entry {
+        margin-top: 4px;
+      }
+
+      .project-description {
+        margin-top: 1px;
+      }
+
+      .skills p + p,
+      .certifications p + p {
+        margin-top: 2px;
+      }
+
+      .label {
+        font-weight: 700;
+      }
+
+      .education-note {
+        margin-top: 2px;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      @media print {
+        html,
+        body {
+          background: #ffffff;
+        }
+
+        main {
+          margin: 0;
+          box-shadow: none;
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+
+      @media (max-width: 800px) {
+        main {
+          width: 100%;
+          min-height: 100vh;
+          margin: 0;
+          padding: 24px 20px 32px;
+          box-shadow: none;
+        }
+
+        .entry-heading {
+          display: block;
+        }
+
+        .entry-heading time {
+          display: block;
+          margin-top: 1px;
+        }
+      }
     </style>
   </head>
   <body>
     <main>
-      <header>
-        <div>
-          <h1>Leonardo Farias Martins</h1>
-          <p>Analista de Sistemas e Desenvolvedor · Automação · Dados</p>
-        </div>
-        <div class="links">
-          <span>Mato Grosso, Brasil</span>
-          <a href="mailto:leonardofarias.tech@gmail.com">leonardofarias.tech@gmail.com</a>
-          <a href="https://github.com/DevOPhost">github.com/DevOPhost</a>
-          <a href="https://www.linkedin.com/in/leonardo-farias-martins-160340215/">LinkedIn / Leonardo Farias Martins</a>
-        </div>
-      </header>
-
-      <p class="summary">
-        Profissional de Tecnologia da Informação formado em Ciência da Computação pela UNIC, com
-        experiência prática desde 2023 conectando processos administrativos e tecnologia. Atuação com
-        análise de sistemas, ERP, automação com Python e Excel, desenvolvimento web, banco de dados,
-        Supabase, documentação técnica e organização de informações operacionais.
-      </p>
-
-      <div class="grid">
-        <div>
-          <section>
-            <h2>Experiência profissional</h2>
-            <div class="item">
-              <h3>Analista de Sistemas e Desenvolvedor · Kiminorte</h3>
-              <div class="meta">Agosto de 2023 até o momento · Várzea Grande/MT · Presencial</div>
-              <ul>
-                <li>Análise e organização de dados operacionais em Excel e planilhas avançadas.</li>
-                <li>Apoio à gestão e utilização de sistemas ERP e às rotinas administrativas.</li>
-                <li>Automação de tarefas recorrentes utilizando Excel e Python.</li>
-                <li>Desenvolvimento de landing pages e soluções web responsivas.</li>
-                <li>Documentação de sistemas, processos internos e suporte técnico à operação.</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <h2>Projetos selecionados</h2>
-            <div class="item"><h3>ArcadeX</h3><div class="meta">Next.js · TypeScript · Supabase</div><span>Plataforma com 18 jogos, ranking, XP, economia interna, missões, conquistas, admin e anti-cheat.</span></div>
-            <div class="item"><h3>DevAtlas</h3><div class="meta">Web · UX · Arquitetura da informação</div><span>Guia gratuito para comparar áreas de tecnologia, explorar stacks e orientar decisões de carreira.</span></div>
-            <div class="item"><h3>NexusOps & StageFlow</h3><div class="meta">JavaScript · Dashboards · Sistemas acadêmicos</div><span>Soluções desenvolvidas nos estágios supervisionados para operações de TI e gestão de estágios.</span></div>
-            <div class="item"><h3>Organize & TerraVex</h3><div class="meta">Python · CLI · APIs · Dados</div><span>Automação segura de arquivos e experiência interativa para explorar indicadores econômicos globais.</span></div>
-          </section>
-
-          <section>
-            <h2>Formação</h2>
-            <h3>Bacharelado em Ciência da Computação · UNIC</h3>
-            <div class="meta">Agosto de 2022 a Junho de 2026</div>
-            <span>Projetos de extensão, estágios supervisionados e formação em software, dados, redes, segurança e IA.</span>
-          </section>
-        </div>
-
-        <aside>
-          <section>
-            <h2>Destaques</h2>
-            <div class="metric"><strong>9,96</strong><span>coeficiente de rendimento</span></div>
-            <div class="metric"><strong>10</strong><span>nota máxima no TCC, único do semestre</span></div>
-            <div class="metric"><strong>42</strong><span>disciplinas concluídas</span></div>
-            <div class="metric"><strong>2023</strong><span>experiência prática desde 2023</span></div>
-          </section>
-
-          <section>
-            <h2>Competências</h2>
-            <div class="skills">
-              <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>React</span>
-              <span>Next.js</span><span>Node.js</span><span>HTML/CSS</span><span>REST APIs</span>
-              <span>SQL</span><span>Supabase</span><span>MySQL</span><span>Excel avançado</span>
-              <span>ERP</span><span>Git/GitHub</span><span>Postman</span><span>Packet Tracer</span>
-            </div>
-          </section>
-
-          <section>
-            <h2>Certificações selecionadas</h2>
-            <div class="item"><h3>IBM SkillsBuild</h3><div class="meta">Dados · Cibersegurança · Web · IA</div></div>
-            <div class="item"><h3>Cisco Networking Academy</h3><div class="meta">AI Fundamentals · Packet Tracer</div></div>
-            <div class="item"><h3>Fundação Bradesco</h3><div class="meta">Python 53h · Banco de Dados 38h</div></div>
-            <div class="item"><h3>Udemy</h3><div class="meta">Desenvolvimento Web 126,5h · Python</div></div>
-          </section>
-
-          <section>
-            <h2>Idiomas</h2>
-            <h3>Inglês avançado</h3>
-          </section>
-
-          <section>
-            <h2>Extensão</h2>
-            <span>Educação tecnológica, plataforma web para eventos culturais e apoio tecnológico a microempreendedores locais.</span>
-          </section>
-        </aside>
+      <div class="identity">
+        <h1>Leonardo Farias Martins</h1>
+        <p class="headline">Analista de Sistemas | Desenvolvimento Web | Automação e Dados</p>
+        <p class="contact">
+          <span>Cuiabá, MT</span> |
+          <span><a href="tel:+5565984169357">+55 65 98416-9357</a></span> |
+          <span><a href="mailto:leonardofarias.tech@gmail.com">leonardofarias.tech@gmail.com</a></span> |
+          <span><a href="https://www.linkedin.com/in/leonardo-farias-martins-160340215/">LinkedIn</a></span> |
+          <span><a href="https://github.com/DevOPhost">GitHub</a></span> |
+          <span><a href="https://leonardofarias.pages.dev/">Portfólio</a></span>
+        </p>
       </div>
-      <footer>Currículo profissional · Leonardo Farias Martins · 2026</footer>
+
+      <section aria-labelledby="resumo">
+        <h2 id="resumo">Resumo profissional</h2>
+        <p class="summary">
+          Bacharel em Ciência da Computação e Analista de Sistemas com experiência desde 2023 em ERP,
+          dados operacionais, automação com Python e Excel e desenvolvimento web. Atua na análise de
+          necessidades, organização de processos, documentação técnica, suporte à operação e entrega
+          de aplicações responsivas. Conhecimentos em JavaScript, TypeScript, React, Next.js, SQL,
+          PostgreSQL, Supabase e APIs REST.
+        </p>
+      </section>
+
+      <section aria-labelledby="experiencia">
+        <h2 id="experiencia">Experiência profissional</h2>
+        <article class="entry">
+          <div class="entry-heading">
+            <h3>Analista de Sistemas e Desenvolvedor | Kiminorte</h3>
+            <time datetime="2023-08">ago 2023 – atual</time>
+          </div>
+          <p class="meta">Várzea Grande, MT | Presencial</p>
+          <ul>
+            <li>Analisa e organiza dados operacionais em Excel para apoiar rotinas administrativas e decisões da gestão.</li>
+            <li>Apoia a utilização do sistema ERP, documenta processos internos e presta suporte técnico à operação.</li>
+            <li>Automatiza tarefas recorrentes com Python e Excel, reduzindo etapas manuais nos fluxos de trabalho.</li>
+            <li>Desenvolve e mantém páginas web responsivas para apresentação institucional, catálogo e captação de orçamentos.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="projects" aria-labelledby="projetos">
+        <h2 id="projetos">Projetos técnicos selecionados</h2>
+        <article class="entry">
+          <h3>ArcadeX | Next.js, TypeScript, Supabase, PostgreSQL</h3>
+          <p class="project-description">
+            Desenvolveu plataforma com 18 jogos integrados a autenticação, ranking, XP, missões,
+            conquistas, loja, painel administrativo e regras anti-cheat.
+          </p>
+        </article>
+        <article class="entry">
+          <h3>NexusOps | React, Vite, APIs REST</h3>
+          <p class="project-description">
+            Criou dashboard de estágio supervisionado para centralizar projetos, prioridades,
+            indicadores e alertas de operações de TI.
+          </p>
+        </article>
+        <article class="entry">
+          <h3>StageFlow | HTML, CSS, JavaScript</h3>
+          <p class="project-description">
+            Mapeou o fluxo institucional e implementou sistema para acompanhar estagiários, horas,
+            atividades, documentos e relatórios.
+          </p>
+        </article>
+      </section>
+
+      <section aria-labelledby="formacao">
+        <h2 id="formacao">Formação acadêmica</h2>
+        <div class="entry-heading">
+          <h3>Bacharelado em Ciência da Computação | Universidade de Cuiabá (UNIC)</h3>
+          <time datetime="2026-06">ago 2022 – jun 2026</time>
+        </div>
+        <p class="education-note">
+          Coeficiente de rendimento: <strong>9,96</strong> | Trabalho de Conclusão de Curso: <strong>nota 10</strong> |
+          42 disciplinas concluídas
+        </p>
+      </section>
+
+      <section class="skills" aria-labelledby="competencias">
+        <h2 id="competencias">Competências técnicas</h2>
+        <p><span class="label">Linguagens:</span> Python, JavaScript, TypeScript, SQL, HTML e CSS</p>
+        <p><span class="label">Web e APIs:</span> React, Next.js, Node.js, Vite, APIs REST e Postman</p>
+        <p><span class="label">Dados e operação:</span> PostgreSQL, MySQL, Supabase, Excel avançado e sistemas ERP</p>
+        <p><span class="label">Ferramentas:</span> Git, GitHub e documentação técnica</p>
+      </section>
+
+      <section class="certifications" aria-labelledby="certificacoes">
+        <h2 id="certificacoes">Certificações e cursos selecionados</h2>
+        <p><span class="label">IBM SkillsBuild:</span> Data Analytics, Cybersecurity, Web Development e Artificial Intelligence Fundamentals</p>
+        <p><span class="label">Fundação Bradesco:</span> Linguagem de Programação Python (53h) e Banco de Dados (38h)</p>
+        <p><span class="label">Udemy:</span> Desenvolvimento Web Completo (126,5h) | <span class="label">Cisco:</span> AI Fundamentals e Packet Tracer</p>
+      </section>
+
+      <section aria-labelledby="idiomas">
+        <h2 id="idiomas">Idiomas</h2>
+        <p>Português nativo | Inglês avançado</p>
+      </section>
     </main>
   </body>
 </html>
