@@ -2,6 +2,8 @@
 
 Personal portfolio and professional services presentation for Leonardo Farias Martins, a Systems Analyst and Developer with a degree in Computer Science.
 
+[View live demo](https://leonardofarias.pages.dev/) · [GitHub Pages mirror](https://devophost.github.io/portfolio/) · [Source code](https://github.com/DevOPhost/portfolio)
+
 The website serves two audiences: clients looking for digital products and application security support, and recruiters interested in professional experience, projects and education. Portuguese is the default language, with an English version available from the language selector.
 
 ## Pages
@@ -112,6 +114,8 @@ This is a personal portfolio. Academic documents and certificates are available 
 # Leonardo Farias Martins | Portfólio
 
 Portfólio pessoal e apresentação de serviços profissionais de Leonardo Farias Martins, Analista de Sistemas e Desenvolvedor formado em Ciência da Computação.
+
+[Ver demonstração](https://leonardofarias.pages.dev/) · [Espelho no GitHub Pages](https://devophost.github.io/portfolio/) · [Código-fonte](https://github.com/DevOPhost/portfolio)
 
 O site atende a dois públicos: clientes que procuram produtos digitais e apoio em segurança de aplicações, e recrutadores interessados em experiência, projetos e formação. Português é o idioma padrão, com versão em inglês disponível pelo seletor de idioma.
 
