@@ -31,6 +31,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "React", "TypeScript"],
     category: "Produto",
     github: "https://github.com/DevOPhost/dev-atlas",
+    demo: "https://devatlas-mauve.vercel.app/pt",
     image: "assets/projects/dev-atlas/screen-1.png",
     preview: {
       type: "screens",
@@ -48,6 +49,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     category: "Produto",
     github: "https://github.com/DevOPhost/arcadex",
+    demo: "https://arcadex-iota.vercel.app/",
     image: "assets/projects/arcadex/screen-2.png",
     preview: {
       type: "screens",
@@ -292,6 +294,5 @@ export const extensions: ExtensionEntry[] = [
     logoFit: "wide"
   }
 ];
-
 
 
